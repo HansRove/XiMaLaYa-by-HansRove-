@@ -1,0 +1,35 @@
+{
+  "images" : [
+    {
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "resizing" : {
+        "mode" : "9-part",
+        "center" : {
+          "mode" : "tile",
+          "width" : 71,
+          "height" : 45
+        },
+        "cap-insets" : {
+          "bottom" : 26,
+          "top" : 27,
+          "right" : 250,
+          "left" : 319
+        }
+      },
+      "idiom" : "universal",
+      "filename" : "tabbar_bg@2x.png",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}
