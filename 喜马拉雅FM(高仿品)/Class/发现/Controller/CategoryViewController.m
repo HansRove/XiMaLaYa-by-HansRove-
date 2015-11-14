@@ -8,6 +8,8 @@
 
 #import "CategoryViewController.h"
 #import "ViewController.h"
+#import "HomePageViewController.h"
+
 @interface CategoryViewController ()
 
 @end
@@ -29,7 +31,7 @@
 }
 
 - (void)click {
-    ViewController *vc = [ ViewController new];
+    HomePageViewController *vc = [ HomePageViewController new];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
     vc.hidesBottomBarWhenPushed = NO;

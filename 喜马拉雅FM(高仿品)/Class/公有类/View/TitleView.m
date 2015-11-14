@@ -26,6 +26,7 @@
         if (more) {
             [self.moreBtn setTitle:@"更多 " forState:UIControlStateNormal];
         }
+        self.backgroundColor = [UIColor whiteColor];
     }
     return self;
 }
@@ -47,7 +48,7 @@
         [self addSubview:_arrowIV];
         [_arrowIV mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(8);
-            make.bottom.mas_equalTo(-10);
+            make.bottom.mas_equalTo(-12);
             make.size.mas_equalTo(CGSizeMake(10, 10));
         }];
     }
@@ -82,9 +83,15 @@
         _moreBtn.titleLabel.font = [UIFont systemFontOfSize:13];
         _moreBtn.titleLabel.textAlignment = NSTextAlignmentRight;
         [_moreBtn setImage:[UIImage imageNamed:@"cell_arrow"] forState:UIControlStateNormal];
-
+        
+        // 按钮点击事件
+        [_moreBtn addTarget:self action:@selector(click) forControlEvents:UIControlEventTouchUpInside];
         
     }
     return _moreBtn;
+}
+
+- (void)click {
+    NSLog(@"更多按钮被点击");
 }
 @end

@@ -9,14 +9,24 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "&#x559c;&#x9a6c;&#x62c9;&#x96c5;FM(&#x9ad8;&#x4eff;&#x54c1;)/Class/&#x53d1;&#x73b0;/Controller/ViewController.m"
-            timestampString = "469156337.480993"
+            filePath = "&#x559c;&#x9a6c;&#x62c9;&#x96c5;FM(&#x9ad8;&#x4eff;&#x54c1;)/Class/&#x53d1;&#x73b0;/ViewModel/HomePageViewModel.m"
+            timestampString = "469182442.329614"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "-getDataCompletionHandle:"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            scope = "0"
+            stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

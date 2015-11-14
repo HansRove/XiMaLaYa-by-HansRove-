@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 /**
- *  公用介绍Cell, 播放次数, 集数,几首声音也为0, 有才重新布局
+ *  公用介绍Cell, 播放次数, 集数,几首声音也为0, 专辑 有才重新布局
  */
 @interface IntroduceCell : UITableViewCell
+
 
 @end

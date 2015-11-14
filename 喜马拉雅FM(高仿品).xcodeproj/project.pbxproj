@@ -17,6 +17,8 @@
 		C2074A9C1BF212CE0094E70D /* LiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2074A9B1BF212CE0094E70D /* LiveViewController.m */; };
 		C2074A9F1BF212FC0094E70D /* AnchorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2074A9E1BF212FC0094E70D /* AnchorViewController.m */; };
 		C2074AA21BF2132C0094E70D /* RankingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2074AA11BF2132C0094E70D /* RankingViewController.m */; };
+		C231FA4B1BF6FF45001064D1 /* DiscoveryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C231FA4A1BF6FF45001064D1 /* DiscoveryCell.m */; };
+		C231FA4E1BF70FC6001064D1 /* SpecialCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C231FA4D1BF70FC6001064D1 /* SpecialCell.m */; };
 		C23417EB1BF359A400DE52FA /* FindPutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C23417EA1BF359A400DE52FA /* FindPutViewController.m */; };
 		C23417EE1BF35A0700DE52FA /* FindPutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C23417ED1BF35A0700DE52FA /* FindPutCell.m */; };
 		C268A8F61BF43F1E00FEB50C /* IntroduceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C268A8F51BF43F1E00FEB50C /* IntroduceCell.m */; };
@@ -39,7 +41,6 @@
 		C26B96C01BF0CEA4005355A7 /* FindTabsNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C26B96BF1BF0CEA4005355A7 /* FindTabsNetManager.m */; };
 		C2D050DB1BF5C0FA002C6F3E /* GuessLikeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D050DA1BF5C0FA002C6F3E /* GuessLikeModel.m */; };
 		C2D050DE1BF5C53B002C6F3E /* HomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D050DD1BF5C53B002C6F3E /* HomePageViewController.m */; };
-		C2D050E71BF5F7CE002C6F3E /* ContentButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D050E61BF5F7CE002C6F3E /* ContentButton.m */; };
 		C2D050E91BF5FDE8002C6F3E /* btn_01.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D050E81BF5FDE8002C6F3E /* btn_01.png */; };
 		C2D050EC1BF609B6002C6F3E /* ContentImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D050EB1BF609B6002C6F3E /* ContentImageView.m */; };
 		E74D0709017F5FAED54C36BF /* libPods-喜马拉雅FM(高仿品).a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2770EFEF7EFBE8C9EDBE6516 /* libPods-喜马拉雅FM(高仿品).a */; };
@@ -69,6 +70,10 @@
 		C2074A9E1BF212FC0094E70D /* AnchorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnchorViewController.m; sourceTree = "<group>"; };
 		C2074AA01BF2132C0094E70D /* RankingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankingViewController.h; sourceTree = "<group>"; };
 		C2074AA11BF2132C0094E70D /* RankingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankingViewController.m; sourceTree = "<group>"; };
+		C231FA491BF6FF45001064D1 /* DiscoveryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoveryCell.h; sourceTree = "<group>"; };
+		C231FA4A1BF6FF45001064D1 /* DiscoveryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoveryCell.m; sourceTree = "<group>"; };
+		C231FA4C1BF70FC6001064D1 /* SpecialCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialCell.h; sourceTree = "<group>"; };
+		C231FA4D1BF70FC6001064D1 /* SpecialCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialCell.m; sourceTree = "<group>"; };
 		C23417E91BF359A400DE52FA /* FindPutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindPutViewController.h; sourceTree = "<group>"; };
 		C23417EA1BF359A400DE52FA /* FindPutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindPutViewController.m; sourceTree = "<group>"; };
 		C23417EC1BF35A0700DE52FA /* FindPutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindPutCell.h; sourceTree = "<group>"; };
@@ -113,8 +118,6 @@
 		C2D050DA1BF5C0FA002C6F3E /* GuessLikeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuessLikeModel.m; sourceTree = "<group>"; };
 		C2D050DC1BF5C53B002C6F3E /* HomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageViewController.h; sourceTree = "<group>"; };
 		C2D050DD1BF5C53B002C6F3E /* HomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageViewController.m; sourceTree = "<group>"; };
-		C2D050E51BF5F7CE002C6F3E /* ContentButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentButton.h; sourceTree = "<group>"; };
-		C2D050E61BF5F7CE002C6F3E /* ContentButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentButton.m; sourceTree = "<group>"; };
 		C2D050E81BF5FDE8002C6F3E /* btn_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_01.png; sourceTree = "<group>"; };
 		C2D050EA1BF609B6002C6F3E /* ContentImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentImageView.h; sourceTree = "<group>"; };
 		C2D050EB1BF609B6002C6F3E /* ContentImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentImageView.m; sourceTree = "<group>"; };
@@ -386,8 +389,10 @@
 				C23417ED1BF35A0700DE52FA /* FindPutCell.m */,
 				C2D050EA1BF609B6002C6F3E /* ContentImageView.h */,
 				C2D050EB1BF609B6002C6F3E /* ContentImageView.m */,
-				C2D050E51BF5F7CE002C6F3E /* ContentButton.h */,
-				C2D050E61BF5F7CE002C6F3E /* ContentButton.m */,
+				C231FA491BF6FF45001064D1 /* DiscoveryCell.h */,
+				C231FA4A1BF6FF45001064D1 /* DiscoveryCell.m */,
+				C231FA4C1BF70FC6001064D1 /* SpecialCell.h */,
+				C231FA4D1BF70FC6001064D1 /* SpecialCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -707,10 +712,10 @@
 				C26B96C01BF0CEA4005355A7 /* FindTabsNetManager.m in Sources */,
 				C2D050DE1BF5C53B002C6F3E /* HomePageViewController.m in Sources */,
 				C2D050EC1BF609B6002C6F3E /* ContentImageView.m in Sources */,
-				C2D050E71BF5F7CE002C6F3E /* ContentButton.m in Sources */,
 				C268A90E1BF4BAC300FEB50C /* TitleView.m in Sources */,
 				C23417EB1BF359A400DE52FA /* FindPutViewController.m in Sources */,
 				C26B96A61BF0BC5B005355A7 /* HRSoundViewController.m in Sources */,
+				C231FA4E1BF70FC6001064D1 /* SpecialCell.m in Sources */,
 				C2074A931BF209E00094E70D /* BaseViewModel.m in Sources */,
 				C26B965B1BF0B3CC005355A7 /* main.m in Sources */,
 				C268A8F61BF43F1E00FEB50C /* IntroduceCell.m in Sources */,
@@ -728,6 +733,7 @@
 				C268A90B1BF4A68400FEB50C /* FindTabsModel.m in Sources */,
 				C2074A8F1BF209E00094E70D /* HRTabBarController.m in Sources */,
 				C23417EE1BF35A0700DE52FA /* FindPutCell.m in Sources */,
+				C231FA4B1BF6FF45001064D1 /* DiscoveryCell.m in Sources */,
 				C26B96A01BF0BC2F005355A7 /* HRDownloadViewController.m in Sources */,
 				C26B96A31BF0BC45005355A7 /* HRFindViewController.m in Sources */,
 				C2074A921BF209E00094E70D /* HRPlayView.m in Sources */,

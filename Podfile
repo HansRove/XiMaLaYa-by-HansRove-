@@ -9,6 +9,8 @@ pod ‘Masonry’
 pod ‘AFNetworking’
 pod ‘MJExtension’
 pod ‘WMPageController’
+pod ‘MJRefresh’
+
 
 end
 

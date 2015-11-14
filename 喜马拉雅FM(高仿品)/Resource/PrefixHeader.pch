@@ -46,7 +46,7 @@
 
 
 
-//#import <MJRefresh.h>    //优秀的滚动视图头部和脚步刷新效果
+#import <MJRefresh.h>    //优秀的滚动视图头部和脚步刷新效果
 #import <MJExtension.h>     //优秀的Json解析类库
 
 

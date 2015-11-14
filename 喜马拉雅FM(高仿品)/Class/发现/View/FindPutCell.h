@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ContentButton.h"
 #import "ContentImageView.h"
-
+/**
+ *  自定义三个按钮框图片, 高度150合适
+ */
 @interface FindPutCell : UITableViewCell
 
 /** 图片上显示透明title标签 */

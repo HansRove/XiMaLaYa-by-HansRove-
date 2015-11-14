@@ -11,6 +11,9 @@
 // NavigationBar高度
 #define NavigationBar_HEIGHT 44
 
+// 自定义Cell高,
+#define kSmallCellHight 70
+#define kBigCellHight 120
 #pragma mark - 设备信息
 #define kIOS_VERSION    [[[UIDevice currentDevice] systemVersion] floatValue]
 #define kDEVICE_MODEL   [[UIDevice currentDevice] model]
