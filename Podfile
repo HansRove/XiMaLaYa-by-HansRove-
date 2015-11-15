@@ -10,6 +10,7 @@ pod ‘AFNetworking’
 pod ‘MJExtension’
 pod ‘WMPageController’
 pod ‘MJRefresh’
+pod ‘BlocksKit’
 
 
 end

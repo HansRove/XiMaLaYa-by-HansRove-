@@ -13,21 +13,116 @@
 #import "HomePageModel.h"
 #import "DiscoveryCell.h"
 #import "SpecialCell.h"
+#import "iCarousel.h"  // 制作头部循环滚动视图
 
-@interface HomePageViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface HomePageViewController ()<UITableViewDataSource,UITableViewDelegate,iCarouselDataSource,iCarouselDelegate>
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) HomePageViewModel *homeVM;
 @end
 
 @implementation HomePageViewController
-
+{ // 定义完全私有的属性 : 添加成员变量,因为不需要懒加载,所以不需要是属性
+    NSTimer *_timer;
+    iCarousel *_ic;
+    UIPageControl *_pageControl;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.tableView.mj_header beginRefreshing];
 }
 
-#pragma mark - UITableViewDelegate
+#pragma mark - 自定义头部滚动视图
+/**  头部滚动视图 */
+- (UIView *)headerView {
+    [_timer invalidate];
+    // 当前没有头部滚动视图, 返回空对象nil
+    if (!self.homeVM.isExitsScrollView) {
+        return nil;
+    }
+    
+    //头部视图origin无效,宽度无效,肯定是与table同宽
+    UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, kWindowW/660*310)];
+    
+    // 添加滚动栏
+    _ic = [iCarousel new];
+    [headView addSubview:_ic];
+    [_ic mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(0);
+    }];
+    _ic.delegate = self;
+    _ic.dataSource = self;
+    // 如果只有一张图,则不可以滚动
+    _ic.scrollEnabled = self.homeVM.focusImgNumber != 1;
+//    _ic.scrollSpeed = 1;
+    // 让图片一张一张滚, 默认NO  滚一次到尾
+    _ic.pagingEnabled = YES;
+    
+    _pageControl = [UIPageControl new];
+    _pageControl.numberOfPages = self.homeVM.focusImgNumber;
+    [_ic addSubview:_pageControl];
+    [_pageControl mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.mas_equalTo(0);
+        make.bottom.mas_equalTo(-6);
+        make.centerX.mas_equalTo(0);
+        make.height.mas_equalTo(10);
+    }];
+    // 如果只有一张图,则不显示圆点
+    _pageControl.hidesForSinglePage = YES;
+    // 小圆点不与用户交互
+    _pageControl.userInteractionEnabled = NO;
+    // 小圆点颜色设置
+    _pageControl.pageIndicatorTintColor = [UIColor lightTextColor];
+    _pageControl.currentPageIndicatorTintColor = [UIColor whiteColor];
+    
+    // 计时器产生,开启滚动
+    if (self.homeVM.focusImgNumber > 1) {
+        _timer = [NSTimer bk_scheduledTimerWithTimeInterval:3 block:^(NSTimer *timer) {
+            [_ic scrollToItemAtIndex:_ic.currentItemIndex+1 animated:YES];
+        } repeats:YES];
+    }
+    return headView;
+}
 
+#pragma mark - iCarousel代理方法
+// @require
+- (NSInteger)numberOfItemsInCarousel:(iCarousel *)carousel {
+    return self.homeVM.focusImgNumber;
+}
+- (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSInteger)index reusingView:(nullable UIView *)view {
+    UIImageView *imgView = nil;
+    if (!view) {
+        view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWindowW, kWindowW/660*310)];
+        imgView = [UIImageView new];
+        [view addSubview:imgView];
+        imgView.tag = 100;
+        imgView.contentMode = UIViewContentModeScaleAspectFit;
+        view.clipsToBounds = YES;
+        [imgView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.mas_equalTo(0);
+        }];
+    }
+    
+    imgView = (UIImageView *)[view viewWithTag:100];
+    [imgView setImageWithURL:[self.homeVM focusImgURLForIndex:index] placeholderImage:[UIImage imageNamed:@"cell_bg_noData_2"]];
+    return view;
+}
+
+// @option
+/** 允许循环滚动 */
+- (CGFloat)carousel:(iCarousel *)carousel valueForOption:(iCarouselOption)option withDefault:(CGFloat)value {
+    if (option == iCarouselOptionWrap) {
+        return YES;
+    }
+    return value;
+}
+
+/**  监控滚到第几个 */
+- (void)carouselCurrentItemIndexDidChange:(iCarousel *)carousel {
+    _pageControl.currentPage = carousel.currentItemIndex;
+}
+
+
+#pragma mark - UITableViewDelegate
 // 去分割线
 kRemoveCellSeparator
 
@@ -152,6 +247,7 @@ kRemoveCellSeparator
         _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
             [self.homeVM getDataCompletionHandle:^(NSError *error) {
                 NSLog(@"%@",error.userInfo);
+                _tableView.tableHeaderView  = [self headerView];
                 [_tableView reloadData];
                 [_tableView.mj_header endRefreshing];
             }];

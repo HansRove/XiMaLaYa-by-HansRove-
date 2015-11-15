@@ -39,9 +39,9 @@
 
 
 /* 改变系统的target+selector模式为 block模式。 带来紧凑的代码风格，高效率的回调执行 */
-//#import <BlocksKit.h>
-//#import <BlocksKit+MessageUI.h>
-//#import <BlocksKit+UIKit.h>
+#import <BlocksKit.h>
+#import <BlocksKit+MessageUI.h>
+#import <BlocksKit+UIKit.h>
 /* --------------------------- */
 
 

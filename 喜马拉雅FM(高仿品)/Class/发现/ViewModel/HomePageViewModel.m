@@ -151,6 +151,22 @@
     return self.model.entrances.list.firstObject.title;
 }
 
+#pragma mark - 头部滚动视图
+/**  是否有滚动视图 */
+- (BOOL)isExitsScrollView {   // 判断一个数组不空办法, 还要加上NSNull类, 因为服务器人员可能出错
+    
+    return self.model.focusImages.list != nil && self.model.focusImages.list.count != 0 && ![self.model.focusImages.list isKindOfClass:[NSNull class]] ;
+}
+/** 滚动展示栏的图片数量 */
+- (NSInteger)focusImgNumber {
+    return self.model.focusImages.list.count;
+}
+/** 滚动展示栏的图片地址 */
+- (NSURL *)focusImgURLForIndex:(NSInteger)index {
+    NSString *path = self.model.focusImages.list[index].pic;
+    return [NSURL URLWithString:path];
+}
+
 #pragma mark - 懒加载
 - (NSInteger)discoverCount {
    DiscoveryC *discover =  self.model.discoveryColumns;

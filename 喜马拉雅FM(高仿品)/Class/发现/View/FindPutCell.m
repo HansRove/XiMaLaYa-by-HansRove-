@@ -70,7 +70,7 @@
 //            make.bottom.mas_equalTo(-8);
         }];
         _detailLb0.font = [UIFont systemFontOfSize:14];
-        _detailLb0.numberOfLines = 0;
+        _detailLb0.numberOfLines = 2;
     }
     return _detailLb0;
 }
@@ -85,7 +85,7 @@
 //            make.bottom.mas_equalTo(-8);
         }];
         _detailLb1.font = [UIFont systemFontOfSize:14];
-        _detailLb1.numberOfLines = 0;
+        _detailLb1.numberOfLines = 2;
     }
     return _detailLb1;
 }
@@ -100,7 +100,7 @@
 //            make.bottom.mas_equalTo(-8);
         }];
         _detailLb2.font = [UIFont systemFontOfSize:14];
-        _detailLb2.numberOfLines = 0;
+        _detailLb2.numberOfLines = 2;
         
     }
     return _detailLb2;

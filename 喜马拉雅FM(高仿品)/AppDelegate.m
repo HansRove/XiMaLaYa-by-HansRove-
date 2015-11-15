@@ -12,6 +12,7 @@
 #import "HRFindViewController.h"
 
 #import "HomePageViewModel.h"
+#import "HomePageNetManager.h"  // 测试网络解析
 
 @interface AppDelegate ()
 
@@ -23,8 +24,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
     
-    [[HomePageViewModel alloc] getDataCompletionHandle:^(NSError *error) {
-       
+  
+    [HomePageNetManager getCategoryPageCompletionHandle:^(id responseObject, NSError *error) {
+        NSLog(@"");
     }];
 
 

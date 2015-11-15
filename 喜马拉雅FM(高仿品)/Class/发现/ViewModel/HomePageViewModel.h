@@ -10,8 +10,7 @@
 #import "HomePageModel.h"
 
 @interface HomePageViewModel : BaseViewModel
-/** 存储focusImages.list焦点图数组*/
-@property (nonatomic,strong) NSArray *focusImagesArr;
+
 /** 存储小编推荐栏 editorRecommendAlbums */
 /** 存储发现新奇栏 discoveryColumns */
 @property (nonatomic,assign) NSInteger discoverCount;
@@ -49,5 +48,14 @@
 // 热门直播图片地址
 - (NSURL *)entrancesURL;
 - (NSString *)entrancesTitle;
+
+#pragma mark - 头部滚动视图
+/**  是否有滚动视图 */
+@property (nonatomic,assign,getter=isExitsScrollView) BOOL exitsScrollView;
+/** 滚动展示栏(焦点图)的图片数量 */
+@property (nonatomic,assign) NSInteger focusImgNumber;
+/** 滚动展示栏(焦点图)的图片地址 */
+- (NSURL *)focusImgURLForIndex:(NSInteger)index;
+
 
 @end

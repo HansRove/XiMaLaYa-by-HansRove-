@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>BlocksKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MJExtension.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,7 +42,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>09D71DBD616B18CC05AA862EA66E9D45</key>
+		<key>3E59419DD5842058AA92520BFCB3B999</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -62,7 +67,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DA46C6C713340B37E1460DF65A015DCE</key>
+		<key>C38380075F7E450669657C826259A04C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DA1A7295DF2A99609DA0EEBF5E83233D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

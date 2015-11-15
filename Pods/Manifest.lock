@@ -20,6 +20,21 @@ PODS:
   - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - BlocksKit (2.2.5):
+    - BlocksKit/All (= 2.2.5)
+  - BlocksKit/All (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+    - BlocksKit/MessageUI
+    - BlocksKit/UIKit
+  - BlocksKit/Core (2.2.5)
+  - BlocksKit/DynamicDelegate (2.2.5)
+  - BlocksKit/MessageUI (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+  - BlocksKit/UIKit (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
   - Masonry (0.6.3)
   - MJExtension (3.0.3)
   - MJRefresh (3.0.2)
@@ -27,6 +42,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - BlocksKit
   - Masonry
   - MJExtension
   - MJRefresh
@@ -34,6 +50,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
+  BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
   Masonry: ff105a956abcd19a618b2028b121cb638d7a8e2f
   MJExtension: de557e1c48ef3212590d3203764c8003fae68815
   MJRefresh: 85377dc8c70395cf329e102a5c55505ef387c2e1
