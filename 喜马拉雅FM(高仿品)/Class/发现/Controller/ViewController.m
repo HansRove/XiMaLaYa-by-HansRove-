@@ -12,6 +12,9 @@
 #import "ContentImageView.h"
 #import "DiscoveryCell.h"
 #import "SpecialCell.h"
+#import "CategorySpecialCell.h"
+#import "CategoryCommonCell.h"
+
 
 @interface ViewController ()<UITableViewDataSource,UITableViewDelegate, ContentImageViewDelegate>
 @property (nonatomic,strong) UITableView *tableView;
@@ -58,12 +61,27 @@
 //    cell.detailLb1.text = @"测试文字";
 //    cell.detailLb2.text = @"测试文字";
     
-    SpecialCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    [cell.coverIV setImageWithURL:url placeholderImage:[UIImage imageNamed:@"btn_01"]];
-    cell.titleLb.text = @"我是标题";
-    cell.subTitleLb.text = @"我是描述fjdisoah";
-    cell.footNoteLb.text = @"90张专辑";
+//    SpecialCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+//    [cell.coverIV setImageWithURL:url placeholderImage:[UIImage imageNamed:@"btn_01"]];
+//    cell.titleLb.text = @"我是标题";
+//    cell.subTitleLb.text = @"我是描述fjdisoah";
+//    cell.footNoteLb.text = @"90张专辑";
     
+//    CategorySpecialCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CSCell"];
+//    cell.icon0.image = [UIImage imageNamed:@"小新"];
+//    cell.icon1.image = [UIImage imageNamed:@"剪刀"];
+//    cell.icon2.image = [UIImage imageNamed:@"剪刀"];
+//    cell.icon3.image = [UIImage imageNamed:@"剪刀"];
+//    cell.icon4.image = [UIImage imageNamed:@"剪刀"];
+    CategoryCommonCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CCCell"];
+//    cell.icon1.image = [UIImage imageNamed:@"剪刀"];
+//    cell.icon2.image = [UIImage imageNamed:@"剪刀"];
+//    cell.categoryLb1.text = @"哈哈哈哈";
+//    cell.categoryLb2.text = @"嘿嘿嘿黑";
+    cell.btn1.icon.image = [UIImage imageNamed:@"剪刀"];
+    cell.btn1.categoryLb.text = @"哈哈哈哈";
+    cell.btn2.icon.image = [UIImage imageNamed:@"剪刀"];
+    cell.btn2.categoryLb.text = @"哈哈哈哈";
     
     // 200
 //    cell.clickBtn2.tag / 10;
@@ -86,7 +104,9 @@
 //        [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
         [_tableView registerClass:[DiscoveryCell class] forCellReuseIdentifier:@"Cell"];
         [_tableView registerClass:[SpecialCell class] forCellReuseIdentifier:@"Cell"];
-        _tableView.rowHeight = 70;
+        [_tableView registerClass:[CategorySpecialCell class] forCellReuseIdentifier:@"CSCell"];
+        [_tableView registerClass:[CategoryCommonCell class] forCellReuseIdentifier:@"CCCell"];
+//        _tableView.rowHeight = 44;
         
         
     }
@@ -101,5 +121,7 @@
     NSInteger group = tag / 10;
     NSInteger pos = tag % 10;
 }
+
+
 
 @end

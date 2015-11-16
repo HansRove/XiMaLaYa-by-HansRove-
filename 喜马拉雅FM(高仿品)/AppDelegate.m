@@ -24,13 +24,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
     
-  
-    [HomePageNetManager getCategoryPageCompletionHandle:^(id responseObject, NSError *error) {
-        NSLog(@"");
-    }];
-
-
-    
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
     HRTabBarController *tab = [[HRTabBarController alloc] init];

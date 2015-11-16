@@ -5,6 +5,20 @@
       "scale" : "1x"
     },
     {
+      "resizing" : {
+        "mode" : "9-part",
+        "center" : {
+          "mode" : "tile",
+          "width" : 38,
+          "height" : 8
+        },
+        "cap-insets" : {
+          "bottom" : 29,
+          "top" : 48,
+          "right" : 271,
+          "left" : 319
+        }
+      },
       "idiom" : "universal",
       "filename" : "tabbar_bg@2x.png",
       "scale" : "2x"

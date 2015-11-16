@@ -42,8 +42,15 @@
 		C2D050DB1BF5C0FA002C6F3E /* GuessLikeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D050DA1BF5C0FA002C6F3E /* GuessLikeModel.m */; };
 		C2D050DE1BF5C53B002C6F3E /* HomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D050DD1BF5C53B002C6F3E /* HomePageViewController.m */; };
 		C2D050EC1BF609B6002C6F3E /* ContentImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D050EB1BF609B6002C6F3E /* ContentImageView.m */; };
+		C2E848821BF9602A00366E8A /* 小新.png in Resources */ = {isa = PBXBuildFile; fileRef = C2E848811BF9602A00366E8A /* 小新.png */; };
+		C2E848841BF9603500366E8A /* 剪刀.png in Resources */ = {isa = PBXBuildFile; fileRef = C2E848831BF9603500366E8A /* 剪刀.png */; };
+		C2E848871BF96E4700366E8A /* CategoryCommonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E848861BF96E4700366E8A /* CategoryCommonCell.m */; };
+		C2E8488A1BF9821B00366E8A /* CategoryButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E848891BF9821B00366E8A /* CategoryButton.m */; };
+		C2E848DD1BF9F41400366E8A /* cell_common.png in Resources */ = {isa = PBXBuildFile; fileRef = C2E848DC1BF9F41400366E8A /* cell_common.png */; };
+		C2E848E31BF9F6A200366E8A /* CategoryViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E848E21BF9F6A200366E8A /* CategoryViewModel.m */; };
 		C2F21A291BF864BA00CB5397 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F21A281BF864BA00CB5397 /* iCarousel.m */; };
 		C2F21A361BF881BA00CB5397 /* CategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F21A351BF881BA00CB5397 /* CategoryModel.m */; };
+		C2F21A3C1BF8882500CB5397 /* CategorySpecialCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F21A3B1BF8882500CB5397 /* CategorySpecialCell.m */; };
 		E74D0709017F5FAED54C36BF /* libPods-喜马拉雅FM(高仿品).a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2770EFEF7EFBE8C9EDBE6516 /* libPods-喜马拉雅FM(高仿品).a */; };
 /* End PBXBuildFile section */
 
@@ -121,10 +128,21 @@
 		C2D050DD1BF5C53B002C6F3E /* HomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageViewController.m; sourceTree = "<group>"; };
 		C2D050EA1BF609B6002C6F3E /* ContentImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentImageView.h; sourceTree = "<group>"; };
 		C2D050EB1BF609B6002C6F3E /* ContentImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentImageView.m; sourceTree = "<group>"; };
+		C2E848811BF9602A00366E8A /* 小新.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "小新.png"; sourceTree = "<group>"; };
+		C2E848831BF9603500366E8A /* 剪刀.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "剪刀.png"; sourceTree = "<group>"; };
+		C2E848851BF96E4600366E8A /* CategoryCommonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryCommonCell.h; sourceTree = "<group>"; };
+		C2E848861BF96E4700366E8A /* CategoryCommonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryCommonCell.m; sourceTree = "<group>"; };
+		C2E848881BF9821B00366E8A /* CategoryButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryButton.h; sourceTree = "<group>"; };
+		C2E848891BF9821B00366E8A /* CategoryButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryButton.m; sourceTree = "<group>"; };
+		C2E848DC1BF9F41400366E8A /* cell_common.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cell_common.png; sourceTree = "<group>"; };
+		C2E848E11BF9F6A200366E8A /* CategoryViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryViewModel.h; sourceTree = "<group>"; };
+		C2E848E21BF9F6A200366E8A /* CategoryViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryViewModel.m; sourceTree = "<group>"; };
 		C2F21A271BF864BA00CB5397 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
 		C2F21A281BF864BA00CB5397 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
 		C2F21A341BF881BA00CB5397 /* CategoryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryModel.h; sourceTree = "<group>"; };
 		C2F21A351BF881BA00CB5397 /* CategoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryModel.m; sourceTree = "<group>"; };
+		C2F21A3A1BF8882500CB5397 /* CategorySpecialCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategorySpecialCell.h; sourceTree = "<group>"; };
+		C2F21A3B1BF8882500CB5397 /* CategorySpecialCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategorySpecialCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -341,6 +359,9 @@
 		C26B967D1BF0B617005355A7 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C2E848DC1BF9F41400366E8A /* cell_common.png */,
+				C2E848831BF9603500366E8A /* 剪刀.png */,
+				C2E848811BF9602A00366E8A /* 小新.png */,
 				C26B96A11BF0BC45005355A7 /* HRFindViewController.h */,
 				C26B96A21BF0BC45005355A7 /* HRFindViewController.m */,
 				C26B96AC1BF0C233005355A7 /* ViewController.h */,
@@ -404,6 +425,8 @@
 			children = (
 				C268A9001BF4A58200FEB50C /* HomePageViewModel.h */,
 				C268A9011BF4A58200FEB50C /* HomePageViewModel.m */,
+				C2E848E11BF9F6A200366E8A /* CategoryViewModel.h */,
+				C2E848E21BF9F6A200366E8A /* CategoryViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -619,6 +642,12 @@
 		C2F21A321BF8807D00CB5397 /* 分类 */ = {
 			isa = PBXGroup;
 			children = (
+				C2F21A3A1BF8882500CB5397 /* CategorySpecialCell.h */,
+				C2F21A3B1BF8882500CB5397 /* CategorySpecialCell.m */,
+				C2E848851BF96E4600366E8A /* CategoryCommonCell.h */,
+				C2E848861BF96E4700366E8A /* CategoryCommonCell.m */,
+				C2E848881BF9821B00366E8A /* CategoryButton.h */,
+				C2E848891BF9821B00366E8A /* CategoryButton.m */,
 			);
 			name = "分类";
 			sourceTree = "<group>";
@@ -699,8 +728,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2E848841BF9603500366E8A /* 剪刀.png in Resources */,
+				C2E848821BF9602A00366E8A /* 小新.png in Resources */,
 				C26B96691BF0B3CC005355A7 /* LaunchScreen.storyboard in Resources */,
 				C26B96661BF0B3CC005355A7 /* Assets.xcassets in Resources */,
+				C2E848DD1BF9F41400366E8A /* cell_common.png in Resources */,
 				C26B96641BF0B3CC005355A7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -761,6 +793,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C26B96AE1BF0C233005355A7 /* ViewController.m in Sources */,
+				C2F21A3C1BF8882500CB5397 /* CategorySpecialCell.m in Sources */,
 				C268A9111BF4C50000FEB50C /* MoreButton.m in Sources */,
 				C26B965E1BF0B3CC005355A7 /* AppDelegate.m in Sources */,
 				C26B96C01BF0CEA4005355A7 /* FindTabsNetManager.m in Sources */,
@@ -769,6 +802,8 @@
 				C268A90E1BF4BAC300FEB50C /* TitleView.m in Sources */,
 				C23417EB1BF359A400DE52FA /* FindPutViewController.m in Sources */,
 				C26B96A61BF0BC5B005355A7 /* HRSoundViewController.m in Sources */,
+				C2E848E31BF9F6A200366E8A /* CategoryViewModel.m in Sources */,
+				C2E8488A1BF9821B00366E8A /* CategoryButton.m in Sources */,
 				C2F21A361BF881BA00CB5397 /* CategoryModel.m in Sources */,
 				C231FA4E1BF70FC6001064D1 /* SpecialCell.m in Sources */,
 				C2074A931BF209E00094E70D /* BaseViewModel.m in Sources */,
@@ -785,6 +820,7 @@
 				C2074A991BF212C00094E70D /* CategoryViewController.m in Sources */,
 				C2074A9F1BF212FC0094E70D /* AnchorViewController.m in Sources */,
 				C268A9021BF4A58200FEB50C /* HomePageViewModel.m in Sources */,
+				C2E848871BF96E4700366E8A /* CategoryCommonCell.m in Sources */,
 				C26B969A1BF0BBD9005355A7 /* HRMeViewController.m in Sources */,
 				C268A90B1BF4A68400FEB50C /* FindTabsModel.m in Sources */,
 				C2074A8F1BF209E00094E70D /* HRTabBarController.m in Sources */,

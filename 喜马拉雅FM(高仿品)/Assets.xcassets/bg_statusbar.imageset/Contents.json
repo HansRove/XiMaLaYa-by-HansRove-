@@ -5,6 +5,20 @@
       "scale" : "1x"
     },
     {
+      "resizing" : {
+        "mode" : "9-part",
+        "center" : {
+          "mode" : "stretch",
+          "width" : 14,
+          "height" : 12
+        },
+        "cap-insets" : {
+          "bottom" : 9,
+          "top" : 12,
+          "right" : 297,
+          "left" : 319
+        }
+      },
       "idiom" : "universal",
       "filename" : "bg_statusbar@2x.png",
       "scale" : "2x"

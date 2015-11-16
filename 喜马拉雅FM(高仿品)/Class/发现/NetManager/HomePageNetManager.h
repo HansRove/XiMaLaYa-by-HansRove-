@@ -22,7 +22,7 @@
 + (id)getHomePageIntroduceCompletionHandle:(void(^)(id responseObject, NSError *error))completed;
 
 /**  从网络上获得分类信息 */
-// http://mobile.ximalaya.com/mobile/discovery/v1/categories?device=android&picVersion=11
+//http://mobile.ximalaya.com/mobile/discovery/v1/categories?device=android&picVersion=11&scale=2
 + (id)getCategoryPageCompletionHandle:(void(^)(id responseObject, NSError *error))completed;
 
 

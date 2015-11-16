@@ -7,46 +7,90 @@
 //
 
 #import "CategoryViewController.h"
-#import "ViewController.h"
-#import "HomePageViewController.h"
+#import "CategoryViewModel.h"
+#import "CategorySpecialCell.h"
+#import "CategoryCommonCell.h"
 
-@interface CategoryViewController ()
+@interface CategoryViewController ()<UITableViewDataSource,UITableViewDelegate>
+@property (nonatomic,strong) UITableView *tableView;
+@property (nonatomic,strong) CategoryViewModel *categoryVM;
 
+// 记录0行cell高度
+@property (nonatomic,assign) CGFloat zeroCellHight;
 @end
 
 @implementation CategoryViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.backgroundColor = [UIColor redColor];
-    [self.view addSubview:btn];
-    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.mas_equalTo(0);
-        make.width.mas_equalTo(60);
-        make.height.mas_equalTo(65);
-    }];
-    [btn addTarget:self action:@selector(click) forControlEvents:UIControlEventTouchUpInside];
-    self.title = @"hahah";
+    [self.tableView.mj_header beginRefreshing];
 }
 
-- (void)click {
-    HomePageViewController *vc = [ HomePageViewController new];
-    vc.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:vc animated:YES];
-    vc.hidesBottomBarWhenPushed = NO;
+#pragma mark - UITableView代理
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    
+    return self.categoryVM.listsCount >5 ? (self.categoryVM.listsCount - 5)/6+1 : 0;
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return section ? 3 : 1;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        CategorySpecialCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SCell"];
+        self.zeroCellHight = cell.cellHeight;
+        [cell.icon0 setImageWithURL:[self.categoryVM coverURLForIndex:0] placeholderImage:[UIImage imageNamed:@"cell_bg_noData_6"]];
+        [cell.icon1 setImageWithURL:[self.categoryVM coverURLForIndex:1] placeholderImage:[UIImage imageNamed:@"cell_bg_noData_6"]];
+        [cell.icon2 setImageWithURL:[self.categoryVM coverURLForIndex:2] placeholderImage:[UIImage imageNamed:@"cell_bg_noData_6"]];
+        [cell.icon3 setImageWithURL:[self.categoryVM coverURLForIndex:3] placeholderImage:[UIImage imageNamed:@"cell_bg_noData_6"]];
+        [cell.icon4 setImageWithURL:[self.categoryVM coverURLForIndex:4] placeholderImage:[UIImage imageNamed:@"cell_bg_noData_6"]];
+        return cell;
+    } else {
+        CategoryCommonCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CCell"];
+        // 三排两列排布规律
+        NSInteger index = indexPath.section * 6 + indexPath.row * 2;
+        [cell.btn1.icon setImageWithURL:[self.categoryVM coverURLForIndex:(index - 1)] placeholderImage:[UIImage imageNamed:@"cell_bg_noData_7"]];
+        [cell.btn2.icon setImageWithURL:[self.categoryVM coverURLForIndex:index] placeholderImage:[UIImage imageNamed:@"cell_bg_noData_7"]];
+        cell.btn1.categoryLb.text = [self.categoryVM titleForIndex:(index -1 )];
+        cell.btn2.categoryLb.text = [self.categoryVM titleForIndex:index];
+        return cell;
+    }
 }
 
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return indexPath.section ? 44 : self.zeroCellHight;
 }
-*/
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return section ? 5 : 2;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 5;
+}
 
+#pragma mark - 懒加载
+- (CategoryViewModel *)categoryVM {
+    if (!_categoryVM) {
+        _categoryVM = [CategoryViewModel new];
+    }
+    return _categoryVM;
+}
+- (UITableView *)tableView {
+    if (!_tableView) {
+        _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+        [self.view addSubview:_tableView];
+        [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.mas_equalTo(0);
+        }];
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        [_tableView registerClass:[CategorySpecialCell class] forCellReuseIdentifier:@"SCell"];
+        [_tableView registerClass:[CategoryCommonCell class] forCellReuseIdentifier:@"CCell"];
+        _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            [self.categoryVM getDataCompletionHandle:^(NSError *error) {
+                [_tableView reloadData];
+                [_tableView.mj_header endRefreshing];
+            }];
+        }];
+    }
+    return _tableView;
+}
 @end
