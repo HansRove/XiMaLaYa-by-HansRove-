@@ -17,6 +17,7 @@
 		C2074A9C1BF212CE0094E70D /* LiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2074A9B1BF212CE0094E70D /* LiveViewController.m */; };
 		C2074A9F1BF212FC0094E70D /* AnchorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2074A9E1BF212FC0094E70D /* AnchorViewController.m */; };
 		C2074AA21BF2132C0094E70D /* RankingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2074AA11BF2132C0094E70D /* RankingViewController.m */; };
+		C21382371BFAB1E800DD1FB1 /* AnchorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C21382361BFAB1E800DD1FB1 /* AnchorCell.m */; };
 		C231FA4B1BF6FF45001064D1 /* DiscoveryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C231FA4A1BF6FF45001064D1 /* DiscoveryCell.m */; };
 		C231FA4E1BF70FC6001064D1 /* SpecialCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C231FA4D1BF70FC6001064D1 /* SpecialCell.m */; };
 		C23417EB1BF359A400DE52FA /* FindPutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C23417EA1BF359A400DE52FA /* FindPutViewController.m */; };
@@ -39,6 +40,12 @@
 		C26B96A61BF0BC5B005355A7 /* HRSoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C26B96A51BF0BC5B005355A7 /* HRSoundViewController.m */; };
 		C26B96AE1BF0C233005355A7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C26B96AD1BF0C233005355A7 /* ViewController.m */; };
 		C26B96C01BF0CEA4005355A7 /* FindTabsNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C26B96BF1BF0CEA4005355A7 /* FindTabsNetManager.m */; };
+		C2CFA7F91BFACD3100251B87 /* AnchorView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CFA7F81BFACD3100251B87 /* AnchorView.m */; };
+		C2CFA7FF1BFAD9E700251B87 /* AnchorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CFA7FE1BFAD9E700251B87 /* AnchorModel.m */; };
+		C2CFA8021BFADCB200251B87 /* AnchorViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CFA8011BFADCB200251B87 /* AnchorViewModel.m */; };
+		C2CFA8051BFB0CA100251B87 /* RankModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CFA8041BFB0CA100251B87 /* RankModel.m */; };
+		C2CFA8081BFB0E9D00251B87 /* RankCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CFA8071BFB0E9D00251B87 /* RankCell.m */; };
+		C2CFA80B1BFB153400251B87 /* RankViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CFA80A1BFB153400251B87 /* RankViewModel.m */; };
 		C2D050DB1BF5C0FA002C6F3E /* GuessLikeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D050DA1BF5C0FA002C6F3E /* GuessLikeModel.m */; };
 		C2D050DE1BF5C53B002C6F3E /* HomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D050DD1BF5C53B002C6F3E /* HomePageViewController.m */; };
 		C2D050EC1BF609B6002C6F3E /* ContentImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D050EB1BF609B6002C6F3E /* ContentImageView.m */; };
@@ -78,6 +85,8 @@
 		C2074A9E1BF212FC0094E70D /* AnchorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnchorViewController.m; sourceTree = "<group>"; };
 		C2074AA01BF2132C0094E70D /* RankingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankingViewController.h; sourceTree = "<group>"; };
 		C2074AA11BF2132C0094E70D /* RankingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankingViewController.m; sourceTree = "<group>"; };
+		C21382351BFAB1E800DD1FB1 /* AnchorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnchorCell.h; sourceTree = "<group>"; };
+		C21382361BFAB1E800DD1FB1 /* AnchorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnchorCell.m; sourceTree = "<group>"; };
 		C231FA491BF6FF45001064D1 /* DiscoveryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoveryCell.h; sourceTree = "<group>"; };
 		C231FA4A1BF6FF45001064D1 /* DiscoveryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoveryCell.m; sourceTree = "<group>"; };
 		C231FA4C1BF70FC6001064D1 /* SpecialCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialCell.h; sourceTree = "<group>"; };
@@ -122,6 +131,18 @@
 		C26B96AD1BF0C233005355A7 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		C26B96BE1BF0CEA4005355A7 /* FindTabsNetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindTabsNetManager.h; sourceTree = "<group>"; };
 		C26B96BF1BF0CEA4005355A7 /* FindTabsNetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindTabsNetManager.m; sourceTree = "<group>"; };
+		C2CFA7F71BFACD3100251B87 /* AnchorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnchorView.h; sourceTree = "<group>"; };
+		C2CFA7F81BFACD3100251B87 /* AnchorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnchorView.m; sourceTree = "<group>"; };
+		C2CFA7FD1BFAD9E700251B87 /* AnchorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnchorModel.h; sourceTree = "<group>"; };
+		C2CFA7FE1BFAD9E700251B87 /* AnchorModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnchorModel.m; sourceTree = "<group>"; };
+		C2CFA8001BFADCB200251B87 /* AnchorViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnchorViewModel.h; sourceTree = "<group>"; };
+		C2CFA8011BFADCB200251B87 /* AnchorViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnchorViewModel.m; sourceTree = "<group>"; };
+		C2CFA8031BFB0CA100251B87 /* RankModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankModel.h; sourceTree = "<group>"; };
+		C2CFA8041BFB0CA100251B87 /* RankModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankModel.m; sourceTree = "<group>"; };
+		C2CFA8061BFB0E9D00251B87 /* RankCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankCell.h; sourceTree = "<group>"; };
+		C2CFA8071BFB0E9D00251B87 /* RankCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankCell.m; sourceTree = "<group>"; };
+		C2CFA8091BFB153400251B87 /* RankViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankViewModel.h; sourceTree = "<group>"; };
+		C2CFA80A1BFB153400251B87 /* RankViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankViewModel.m; sourceTree = "<group>"; };
 		C2D050D91BF5C0FA002C6F3E /* GuessLikeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuessLikeModel.h; sourceTree = "<group>"; };
 		C2D050DA1BF5C0FA002C6F3E /* GuessLikeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuessLikeModel.m; sourceTree = "<group>"; };
 		C2D050DC1BF5C53B002C6F3E /* HomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageViewController.h; sourceTree = "<group>"; };
@@ -393,6 +414,10 @@
 				C2D050DA1BF5C0FA002C6F3E /* GuessLikeModel.m */,
 				C2F21A341BF881BA00CB5397 /* CategoryModel.h */,
 				C2F21A351BF881BA00CB5397 /* CategoryModel.m */,
+				C2CFA7FD1BFAD9E700251B87 /* AnchorModel.h */,
+				C2CFA7FE1BFAD9E700251B87 /* AnchorModel.m */,
+				C2CFA8031BFB0CA100251B87 /* RankModel.h */,
+				C2CFA8041BFB0CA100251B87 /* RankModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -427,6 +452,10 @@
 				C268A9011BF4A58200FEB50C /* HomePageViewModel.m */,
 				C2E848E11BF9F6A200366E8A /* CategoryViewModel.h */,
 				C2E848E21BF9F6A200366E8A /* CategoryViewModel.m */,
+				C2CFA8001BFADCB200251B87 /* AnchorViewModel.h */,
+				C2CFA8011BFADCB200251B87 /* AnchorViewModel.m */,
+				C2CFA8091BFB153400251B87 /* RankViewModel.h */,
+				C2CFA80A1BFB153400251B87 /* RankViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -621,6 +650,10 @@
 		C2F21A2F1BF8806000CB5397 /* 主播 */ = {
 			isa = PBXGroup;
 			children = (
+				C21382351BFAB1E800DD1FB1 /* AnchorCell.h */,
+				C21382361BFAB1E800DD1FB1 /* AnchorCell.m */,
+				C2CFA7F71BFACD3100251B87 /* AnchorView.h */,
+				C2CFA7F81BFACD3100251B87 /* AnchorView.m */,
 			);
 			name = "主播";
 			sourceTree = "<group>";
@@ -628,6 +661,8 @@
 		C2F21A301BF8806E00CB5397 /* 榜单 */ = {
 			isa = PBXGroup;
 			children = (
+				C2CFA8061BFB0E9D00251B87 /* RankCell.h */,
+				C2CFA8071BFB0E9D00251B87 /* RankCell.m */,
 			);
 			name = "榜单";
 			sourceTree = "<group>";
@@ -793,6 +828,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C26B96AE1BF0C233005355A7 /* ViewController.m in Sources */,
+				C2CFA7FF1BFAD9E700251B87 /* AnchorModel.m in Sources */,
 				C2F21A3C1BF8882500CB5397 /* CategorySpecialCell.m in Sources */,
 				C268A9111BF4C50000FEB50C /* MoreButton.m in Sources */,
 				C26B965E1BF0B3CC005355A7 /* AppDelegate.m in Sources */,
@@ -806,20 +842,26 @@
 				C2E8488A1BF9821B00366E8A /* CategoryButton.m in Sources */,
 				C2F21A361BF881BA00CB5397 /* CategoryModel.m in Sources */,
 				C231FA4E1BF70FC6001064D1 /* SpecialCell.m in Sources */,
+				C2CFA7F91BFACD3100251B87 /* AnchorView.m in Sources */,
 				C2074A931BF209E00094E70D /* BaseViewModel.m in Sources */,
 				C26B965B1BF0B3CC005355A7 /* main.m in Sources */,
 				C268A8F61BF43F1E00FEB50C /* IntroduceCell.m in Sources */,
 				C2074A9C1BF212CE0094E70D /* LiveViewController.m in Sources */,
 				C2074A911BF209E00094E70D /* BaseNetManager.m in Sources */,
+				C21382371BFAB1E800DD1FB1 /* AnchorCell.m in Sources */,
 				C2F21A291BF864BA00CB5397 /* iCarousel.m in Sources */,
+				C2CFA8021BFADCB200251B87 /* AnchorViewModel.m in Sources */,
 				C268A9051BF4A5A900FEB50C /* HomePageNetManager.m in Sources */,
 				C2074A8E1BF209E00094E70D /* HRNavigationController.m in Sources */,
+				C2CFA8051BFB0CA100251B87 /* RankModel.m in Sources */,
+				C2CFA80B1BFB153400251B87 /* RankViewModel.m in Sources */,
 				C268A9081BF4A62200FEB50C /* HomePageModel.m in Sources */,
 				C2074A901BF209E00094E70D /* BaseModel.m in Sources */,
 				C2D050DB1BF5C0FA002C6F3E /* GuessLikeModel.m in Sources */,
 				C2074A991BF212C00094E70D /* CategoryViewController.m in Sources */,
 				C2074A9F1BF212FC0094E70D /* AnchorViewController.m in Sources */,
 				C268A9021BF4A58200FEB50C /* HomePageViewModel.m in Sources */,
+				C2CFA8081BFB0E9D00251B87 /* RankCell.m in Sources */,
 				C2E848871BF96E4700366E8A /* CategoryCommonCell.m in Sources */,
 				C26B969A1BF0BBD9005355A7 /* HRMeViewController.m in Sources */,
 				C268A90B1BF4A68400FEB50C /* FindTabsModel.m in Sources */,

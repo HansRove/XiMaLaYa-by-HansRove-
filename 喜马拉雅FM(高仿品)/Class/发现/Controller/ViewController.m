@@ -14,6 +14,7 @@
 #import "SpecialCell.h"
 #import "CategorySpecialCell.h"
 #import "CategoryCommonCell.h"
+#import "RankCell.h"
 
 
 @interface ViewController ()<UITableViewDataSource,UITableViewDelegate, ContentImageViewDelegate>
@@ -73,15 +74,22 @@
 //    cell.icon2.image = [UIImage imageNamed:@"剪刀"];
 //    cell.icon3.image = [UIImage imageNamed:@"剪刀"];
 //    cell.icon4.image = [UIImage imageNamed:@"剪刀"];
-    CategoryCommonCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CCCell"];
+//    CategoryCommonCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CCCell"];
 //    cell.icon1.image = [UIImage imageNamed:@"剪刀"];
 //    cell.icon2.image = [UIImage imageNamed:@"剪刀"];
 //    cell.categoryLb1.text = @"哈哈哈哈";
 //    cell.categoryLb2.text = @"嘿嘿嘿黑";
-    cell.btn1.icon.image = [UIImage imageNamed:@"剪刀"];
-    cell.btn1.categoryLb.text = @"哈哈哈哈";
-    cell.btn2.icon.image = [UIImage imageNamed:@"剪刀"];
-    cell.btn2.categoryLb.text = @"哈哈哈哈";
+//    cell.btn1.icon.image = [UIImage imageNamed:@"剪刀"];
+//    cell.btn1.categoryLb.text = @"哈哈哈哈";
+//    cell.btn2.icon.image = [UIImage imageNamed:@"剪刀"];
+//    cell.btn2.categoryLb.text = @"哈哈哈哈";
+    
+    RankCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RCell"];
+    cell.coverIV.image = [UIImage imageNamed:@"about_bad_feel"];
+    cell.titleLb.text = @"测试标题";
+    cell.oneLb.text = @"测试1111111111111";
+    cell.twoLb.text = @"测试22222222222222222222222222222222222222222222222222222222222222222222222222222";
+    
     
     // 200
 //    cell.clickBtn2.tag / 10;
@@ -106,7 +114,8 @@
         [_tableView registerClass:[SpecialCell class] forCellReuseIdentifier:@"Cell"];
         [_tableView registerClass:[CategorySpecialCell class] forCellReuseIdentifier:@"CSCell"];
         [_tableView registerClass:[CategoryCommonCell class] forCellReuseIdentifier:@"CCCell"];
-//        _tableView.rowHeight = 44;
+        [_tableView registerClass:[RankCell class] forCellReuseIdentifier:@"RCell"];
+        _tableView.rowHeight = 80;
         
         
     }

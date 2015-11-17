@@ -10,6 +10,7 @@
 
 #import "ViewController.h"
 #import "HomePageViewController.h"
+#import "AnchorViewController.h"
 
 @interface HRMeViewController ()
 
@@ -20,7 +21,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.backgroundColor = [UIColor redColor];
+//    btn.backgroundColor = [UIColor redColor];
+    NSURL *url = [NSURL URLWithString:@"http://fdfs.xmcdn.com/group5/M03/A2/B6/wKgDtVRzL6fhKYXSAADtvRuLo-U167_web_x_large.jpg"];
+    [btn setImageForState:UIControlStateNormal withURL:url];
     [self.view addSubview:btn];
     [btn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.mas_equalTo(0);
@@ -32,8 +35,9 @@
 }
 
 - (void)click {
-        HomePageViewController *vc = [ HomePageViewController new]; 
-//    ViewController *vc = [ViewController new];
+//        HomePageViewController *vc = [ HomePageViewController new];
+//    AnchorViewController *vc =[AnchorViewController new];
+    ViewController *vc = [ViewController new];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
     vc.hidesBottomBarWhenPushed = NO;

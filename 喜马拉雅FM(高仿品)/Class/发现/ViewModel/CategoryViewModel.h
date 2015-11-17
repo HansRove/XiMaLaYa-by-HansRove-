@@ -7,7 +7,9 @@
 //
 
 #import "BaseViewModel.h"
-
+/**
+ *  分类VM
+ */
 @interface CategoryViewModel : BaseViewModel
 
 // 返回list个数

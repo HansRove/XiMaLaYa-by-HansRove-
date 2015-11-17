@@ -8,7 +8,7 @@
 
 #import "FindPutCell.h"
 
-#define kRect (kWindowW - 40)/3
+
 @implementation FindPutCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {

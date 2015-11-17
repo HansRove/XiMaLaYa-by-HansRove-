@@ -9,6 +9,9 @@
 #import "BaseViewModel.h"
 #import "HomePageModel.h"
 
+/**
+ *  首页VM
+ */
 @interface HomePageViewModel : BaseViewModel
 
 /** 存储小编推荐栏 editorRecommendAlbums */

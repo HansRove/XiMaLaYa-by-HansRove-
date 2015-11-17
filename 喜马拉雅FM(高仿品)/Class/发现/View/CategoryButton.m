@@ -13,6 +13,7 @@
 - (instancetype)init {
     if (self = [super init]) {
         self.categoryLb.font = [UIFont systemFontOfSize:15];
+        
     }
     return self;
 }

@@ -9,6 +9,8 @@
 #import "HomePageNetManager.h"
 #import "HomePageModel.h"  // 推荐模型
 #import "CategoryModel.h"  // 分类模型
+#import "AnchorModel.h"     // 主播模型
+#import "RankModel.h"        // 榜单模型
 #define kHomePath @"http://mobile.ximalaya.com/mobile/discovery/v1/recommends"
 #define kURLVersion @"version":@"4.3.20.2"
 #define kURLDevice @"device":@"ios"
@@ -33,6 +35,23 @@
 + (id)getCategoryPageCompletionHandle:(void(^)(id responseObject, NSError *error))completed {
     return [self GET:@"http://mobile.ximalaya.com/mobile/discovery/v1/categories?device=android&picVersion=11&scale=2" parameters:nil complationHandle:^(id responseObject, NSError *error) {
         completed([CategoryModel mj_objectWithKeyValues:responseObject], error);
+    }];
+}
+
+
+/** 从网络上获得主播信息 */
+//http://mobile.ximalaya.com/m/explore_user_index?device=android&page=1
++ (id)getAnchorPageCompletionHandle:(void(^)(id responseObject, NSError *error))completed {
+    return [self GET:@"http://mobile.ximalaya.com/m/explore_user_index?device=android&page=1" parameters:nil complationHandle:^(id responseObject, NSError *error) {
+        completed([AnchorModel mj_objectWithKeyValues:responseObject],error);
+    }];
+}
+
+/** 从网络上获得榜单信息 */
+//http://mobile.ximalaya.com/mobile/discovery/v2/rankingList/group?channel=and-d10&device=android&includeActivity=true&includeSpecial=true&scale=2&version=4.3.32.2
++ (id)getRankPageCompletionHandle:(void(^)(id responseObject, NSError *error))completed {
+    return [self GET:@"http://mobile.ximalaya.com/mobile/discovery/v2/rankingList/group?channel=and-d10&device=android&includeActivity=true&includeSpecial=true&scale=2&version=4.3.32.2" parameters:nil complationHandle:^(id responseObject, NSError *error) {
+        completed([RankModel mj_objectWithKeyValues:responseObject],error);
     }];
 }
 

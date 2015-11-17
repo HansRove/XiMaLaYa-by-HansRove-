@@ -25,6 +25,13 @@
 //http://mobile.ximalaya.com/mobile/discovery/v1/categories?device=android&picVersion=11&scale=2
 + (id)getCategoryPageCompletionHandle:(void(^)(id responseObject, NSError *error))completed;
 
+/** 从网络上获得主播信息 */
+//http://mobile.ximalaya.com/m/explore_user_index?device=android&page=1
++ (id)getAnchorPageCompletionHandle:(void(^)(id responseObject, NSError *error))completed;
+
+/** 从网络上获得榜单信息 */
+//http://mobile.ximalaya.com/mobile/discovery/v2/rankingList/group?channel=and-d10&device=android&includeActivity=true&includeSpecial=true&scale=2&version=4.3.32.2
++ (id)getRankPageCompletionHandle:(void(^)(id responseObject, NSError *error))completed;
 
 
 /**  获取猜你喜欢 */

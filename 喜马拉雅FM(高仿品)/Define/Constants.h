@@ -14,6 +14,10 @@
 // 自定义Cell高,
 #define kSmallCellHight 70
 #define kBigCellHight 120
+
+// 自定义方形按钮宽
+#define kRect (kWindowW - 40)/3
+
 #pragma mark - 设备信息
 #define kIOS_VERSION    [[[UIDevice currentDevice] systemVersion] floatValue]
 #define kDEVICE_MODEL   [[UIDevice currentDevice] model]

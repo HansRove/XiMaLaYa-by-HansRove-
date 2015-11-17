@@ -23,6 +23,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
+    [HomePageNetManager getRankPageCompletionHandle:^(id responseObject, NSError *error) {
+        NSLog(@"");
+    }];
+    
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
