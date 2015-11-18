@@ -15,6 +15,7 @@
 #import "CategorySpecialCell.h"
 #import "CategoryCommonCell.h"
 #import "RankCell.h"
+#import "LiveRecommandCell.h"
 
 
 @interface ViewController ()<UITableViewDataSource,UITableViewDelegate, ContentImageViewDelegate>
@@ -84,11 +85,13 @@
 //    cell.btn2.icon.image = [UIImage imageNamed:@"剪刀"];
 //    cell.btn2.categoryLb.text = @"哈哈哈哈";
     
-    RankCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RCell"];
-    cell.coverIV.image = [UIImage imageNamed:@"about_bad_feel"];
-    cell.titleLb.text = @"测试标题";
-    cell.oneLb.text = @"测试1111111111111";
-    cell.twoLb.text = @"测试22222222222222222222222222222222222222222222222222222222222222222222222222222";
+    LiveRecommandCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LRCell"];
+    [cell.radioBtn0 setImageForState:UIControlStateNormal withURL:url];
+    [cell.radioBtn1 setImageForState:UIControlStateNormal withURL:url];
+    [cell.radioBtn2 setImageForState:UIControlStateNormal withURL:url];
+    cell.nameLb2.text = @"测试标题";
+    cell.nameLb1.text = @"测试1111111111111";
+    cell.nameLb0.text = @"测试22222222222222222222222222222222222222222222222222222222222222222222222222222";
     
     
     // 200
@@ -115,7 +118,8 @@
         [_tableView registerClass:[CategorySpecialCell class] forCellReuseIdentifier:@"CSCell"];
         [_tableView registerClass:[CategoryCommonCell class] forCellReuseIdentifier:@"CCCell"];
         [_tableView registerClass:[RankCell class] forCellReuseIdentifier:@"RCell"];
-        _tableView.rowHeight = 80;
+        [_tableView registerClass:[LiveRecommandCell class] forCellReuseIdentifier:@"LRCell"];
+        _tableView.rowHeight = 190;
         
         
     }

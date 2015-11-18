@@ -23,7 +23,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.tableView.mj_header beginRefreshing];
+    [MBProgressHUD showMessage:@"正在努力为您加载..."];
+    [self.categoryVM getDataCompletionHandle:^(NSError *error) {
+        [MBProgressHUD hideHUD];
+        [self.tableView reloadData];
+    }];
 }
 
 #pragma mark - UITableView代理
@@ -37,6 +41,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         CategorySpecialCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SCell"];
+        // 取Cell的高度
         self.zeroCellHight = cell.cellHeight;
         [cell.icon0 setImageWithURL:[self.categoryVM coverURLForIndex:0] placeholderImage:[UIImage imageNamed:@"cell_bg_noData_6"]];
         [cell.icon1 setImageWithURL:[self.categoryVM coverURLForIndex:1] placeholderImage:[UIImage imageNamed:@"cell_bg_noData_6"]];
@@ -44,6 +49,7 @@
         [cell.icon3 setImageWithURL:[self.categoryVM coverURLForIndex:3] placeholderImage:[UIImage imageNamed:@"cell_bg_noData_6"]];
         [cell.icon4 setImageWithURL:[self.categoryVM coverURLForIndex:4] placeholderImage:[UIImage imageNamed:@"cell_bg_noData_6"]];
         return cell;
+
     } else {
         CategoryCommonCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CCell"];
         // 三排两列排布规律
@@ -58,6 +64,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return indexPath.section ? 44 : self.zeroCellHight;
+
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return section ? 5 : 2;
@@ -65,6 +72,11 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     return 5;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
 
 #pragma mark - 懒加载
 - (CategoryViewModel *)categoryVM {
@@ -78,18 +90,16 @@
         _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
         [self.view addSubview:_tableView];
         [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.mas_equalTo(0);
+            // 防止头部空出一块(因为无头视图)
+            make.top.mas_equalTo(-35);
+            make.bottom.left.right.mas_equalTo(0);
         }];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         [_tableView registerClass:[CategorySpecialCell class] forCellReuseIdentifier:@"SCell"];
         [_tableView registerClass:[CategoryCommonCell class] forCellReuseIdentifier:@"CCell"];
-        _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-            [self.categoryVM getDataCompletionHandle:^(NSError *error) {
-                [_tableView reloadData];
-                [_tableView.mj_header endRefreshing];
-            }];
-        }];
+        // 禁止超出上下拉
+        _tableView.bounces = NO;
     }
     return _tableView;
 }

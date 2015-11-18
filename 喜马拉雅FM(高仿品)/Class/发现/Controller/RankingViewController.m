@@ -28,7 +28,12 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.tableView.mj_header beginRefreshing];
+    [self.rankVM getDataCompletionHandle:^(NSError *error) {
+        [MBProgressHUD hideHUD];
+        [self.tableView reloadData];
+        self.tableView.tableHeaderView = [self setupHeaderView];
+    }];
+//    [self.tableView.mj_header beginRefreshing];
 }
 
 #pragma mark - 自定义头部视图
@@ -165,16 +170,12 @@
         _tableView.delegate = self;
         _tableView.dataSource = self;
         [_tableView registerClass:[RankCell class] forCellReuseIdentifier:@"RCell"];
-        _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-            [self.rankVM getDataCompletionHandle:^(NSError *error) {
-                _tableView.tableHeaderView = [self setupHeaderView];
-                [_tableView reloadData];
-                [_tableView.mj_header endRefreshing];
-            }];
-            _tableView.rowHeight = 80;
-        }];
+        // 一种模式, IndexPath无用
+        _tableView.rowHeight = [self.rankVM cellHeightForIndexPath:nil];
         // 无分隔线风格
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        // 不能超界上下拉
+        _tableView.bounces = NO;
     }
     return _tableView;
 }

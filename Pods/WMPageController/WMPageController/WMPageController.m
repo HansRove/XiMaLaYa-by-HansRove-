@@ -9,7 +9,7 @@
 #import "WMPageController.h"
 #import "WMPageConst.h"
 
-@interface WMPageController () <WMMenuViewDelegate,UIScrollViewDelegate> {
+@interface WMPageController () {
     CGFloat _viewHeight;
     CGFloat _viewWidth;
     CGFloat _viewX;
@@ -48,9 +48,10 @@
 }
 
 #pragma mark - Public Methods
+
 - (instancetype)initWithViewControllerClasses:(NSArray *)classes andTheirTitles:(NSArray *)titles {
     if (self = [super init]) {
-        NSAssert(classes.count == titles.count, @"classes.count != titles.count");
+        NSParameterAssert(classes.count == titles.count);
         _viewControllerClasses = [NSArray arrayWithArray:classes];
         _titles = [NSArray arrayWithArray:titles];
 
@@ -72,12 +73,12 @@
 }
 
 - (void)setItemsMargins:(NSArray *)itemsMargins {
-    NSAssert(itemsMargins.count == self.viewControllerClasses.count + 1, @"item's margin's number must equal to viewControllers's count + 1");
+    NSParameterAssert(itemsMargins.count == self.viewControllerClasses.count + 1);
     _itemsMargins = itemsMargins;
 }
 
 - (void)setItemsWidths:(NSArray *)itemsWidths {
-    NSAssert(itemsWidths.count == self.titles.count, @"itemsWidths.count != self.titles.count");
+    NSParameterAssert(itemsWidths.count == self.titles.count);
     _itemsWidths = [itemsWidths copy];
 }
 
@@ -95,7 +96,37 @@
     }
 }
 
+- (void)reloadData {
+    [self clearDatas];
+    [self resetScrollView];
+    [self.memCache removeAllObjects];
+    [self viewDidLayoutSubviews];
+}
+
 #pragma mark - Private Methods
+- (void)resetScrollView {
+    if (self.scrollView) {
+        [self.scrollView removeFromSuperview];
+    }
+    [self addScrollView];
+    [self addViewControllerAtIndex:self.selectIndex];
+    self.currentViewController = self.displayVC[@(self.selectIndex)];
+}
+
+- (void)clearDatas {
+    NSArray *displayingViewControllers = self.displayVC.allValues;
+    for (UIViewController *vc in displayingViewControllers) {
+        [vc.view removeFromSuperview];
+        [vc willMoveToParentViewController:nil];
+        [vc removeFromParentViewController];
+    }
+    self.memoryWarningCount = 0;
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(growCachePolicyAfterMemoryWarning) object:nil];
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(growCachePolicyToHigh) object:nil];
+    self.currentViewController = nil;
+    [self.posRecords removeAllObjects];
+    [self.displayVC removeAllObjects];
+}
 
 // 当子控制器init完成时发送通知
 - (void)postAddToSuperViewNotificationWithIndex:(int)index {
@@ -137,10 +168,10 @@
 - (void)calculateSize {
     if (CGRectEqualToRect(self.viewFrame, CGRectZero)) {
         _viewWidth = self.view.frame.size.width;
-        _viewHeight = self.view.frame.size.height - self.menuHeight;
+        _viewHeight = self.view.frame.size.height - self.menuHeight - self.menuViewBottom;
     } else {
         _viewWidth = self.viewFrame.size.width;
-        _viewHeight = self.viewFrame.size.height - self.menuHeight;
+        _viewHeight = self.viewFrame.size.height - self.menuHeight - self.menuViewBottom;
     }
     _viewX = self.viewFrame.origin.x;
     _viewY = self.viewFrame.origin.y;
@@ -154,7 +185,7 @@
 
 - (void)addScrollView {
     UIScrollView *scrollView = [[UIScrollView alloc] init];
-    
+    scrollView.scrollsToTop = NO;
     scrollView.pagingEnabled = YES;
     scrollView.backgroundColor = [UIColor whiteColor];
     scrollView.delegate = self;
@@ -227,7 +258,7 @@
 - (void)addViewControllerAtIndex:(int)index {
     Class vcClass = self.viewControllerClasses[index];
     UIViewController *viewController = [[vcClass alloc] init];
-    if (self.values && self.keys) {
+    if (self.values.count == self.viewControllerClasses.count && self.keys.count == self.viewControllerClasses.count) {
         [viewController setValue:self.values[index] forKey:self.keys[index]];
     }
     [self addChildViewController:viewController];
@@ -341,9 +372,10 @@
     [super viewDidLayoutSubviews];
     // 计算宽高及子控制器的视图frame
     [self calculateSize];
-    CGRect scrollFrame = CGRectMake(_viewX, _viewY + self.menuHeight, _viewWidth, _viewHeight);
+    CGRect scrollFrame = CGRectMake(_viewX, _viewY + self.menuHeight + self.menuViewBottom, _viewWidth, _viewHeight);
     self.scrollView.frame = scrollFrame;
-    self.scrollView.contentSize = CGSizeMake(self.titles.count*_viewWidth, _viewHeight-self.menuHeight);
+//    self.scrollView.contentSize = CGSizeMake(self.titles.count*_viewWidth, _viewHeight-self.menuHeight);
+    self.scrollView.contentSize = CGSizeMake(self.titles.count*_viewWidth, 0);
     [self.scrollView setContentOffset:CGPointMake(self.selectIndex*_viewWidth, 0)];
 
     self.currentViewController.view.frame = [self.childViewFrames[self.selectIndex] CGRectValue];
@@ -390,6 +422,12 @@
         CGFloat rate = contentOffsetX / _viewWidth;
         [self.menuView slideMenuAtProgress:rate];
     }
+    
+    // fix scrollView.contentOffset.y -> (-20) unexpectedly.
+    if (scrollView.contentOffset.y == 0) { return; }
+    CGPoint contentOffset = scrollView.contentOffset;
+    contentOffset.y = 0.0;
+    scrollView.contentOffset = contentOffset;
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
@@ -428,22 +466,23 @@
     [self.scrollView setContentOffset:targetP animated:gap > 1 ? NO : self.pageAnimatable];
     if (gap > 1 || !self.pageAnimatable) {
         // 由于不触发 -scrollViewDidScroll: 手动处理控制器
+        UIViewController *currentViewController = self.displayVC[@(currentIndex)];
+        [self removeViewController:currentViewController atIndex:currentIndex];
         [self layoutChildViewControllers];
         self.currentViewController = self.displayVC[@(self.selectIndex)];
-        
         [self postFullyDisplayedNotificationWithCurrentIndex:(int)index];
     }
 }
 
 - (CGFloat)menuView:(WMMenuView *)menu widthForItemAtIndex:(NSInteger)index {
-    if (self.itemsWidths) {
+    if (self.itemsWidths.count == self.viewControllerClasses.count) {
         return [self.itemsWidths[index] floatValue];
     }
     return self.menuItemWidth;
 }
 
 - (CGFloat)menuView:(WMMenuView *)menu itemMarginAtIndex:(NSInteger)index {
-    if (self.itemsMargins) {
+    if (self.itemsMargins.count == self.viewControllerClasses.count + 1) {
         return [self.itemsMargins[index] floatValue];
     }
     return self.itemMargin;

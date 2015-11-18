@@ -41,4 +41,9 @@
     return self.model.list[section].title;
 }
 
+/** 通过indexPath返回cell高*/
+- (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath {
+    return 170;
+}
+
 @end

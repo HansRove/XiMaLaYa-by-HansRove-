@@ -23,7 +23,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-    [HomePageNetManager getRankPageCompletionHandle:^(id responseObject, NSError *error) {
+    [HomePageNetManager getLivePageCompletionHandle:^(id responseObject, NSError *error) {
         NSLog(@"");
     }];
     

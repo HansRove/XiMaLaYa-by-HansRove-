@@ -12,11 +12,14 @@
 #define NavigationBar_HEIGHT 44
 
 // 自定义Cell高,
-#define kSmallCellHight 70
 #define kBigCellHight 120
 
 // 自定义方形按钮宽
 #define kRect (kWindowW - 40)/3
+
+// 自建分类
+#import "MBProgressHUD+HR.h"
+
 
 #pragma mark - 设备信息
 #define kIOS_VERSION    [[[UIDevice currentDevice] systemVersion] floatValue]

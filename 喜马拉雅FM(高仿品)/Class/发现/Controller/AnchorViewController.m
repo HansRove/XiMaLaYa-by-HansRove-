@@ -20,7 +20,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.tableView.mj_header beginRefreshing];
+    [MBProgressHUD showMessage:@"正在努力为您加载..."];
+    [self.anchorVM getDataCompletionHandle:^(NSError *error) {
+        [MBProgressHUD hideHUD];
+        [self.tableView reloadData];
+    }];
 }
 
 #pragma mark - UITableView代理协议
@@ -32,7 +36,6 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     AnchorCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ACell"];
-//    [cell.anchorView0.anchorIV setImageWithURL:[self.anchorVM coverURLForSection:indexPath.section Index:0] placeholderImage:[UIImage imageNamed:@"find_usercover"]];
     [cell.anchorView0.anchorBtn setImageForState:UIControlStateNormal withURL:[self.anchorVM coverURLForSection:indexPath.section Index:0] placeholderImage:[UIImage imageNamed:@"find_usercover"]];
     cell.anchorView0.nameLb.text = [self.anchorVM nameForSection:indexPath.section Index:0];
     [cell.anchorView1.anchorBtn setImageForState:UIControlStateNormal withURL:[self.anchorVM coverURLForSection:indexPath.section Index:1] placeholderImage:[UIImage imageNamed:@"find_usercover"]];
@@ -47,8 +50,13 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     return [[TitleView alloc] initWithTitle:[self.anchorVM mainTitleForSection:section] hasMore:1];
 }
+// 头高
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 35;
+}
+// 尾高
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 10;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -70,19 +78,19 @@ kRemoveCellSeparator
         _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
         [self.view addSubview:_tableView];
         [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.mas_equalTo(0);
+            // 防止头部空出一块
+            make.top.mas_equalTo(-35);
+            make.bottom.left.right.mas_equalTo(0);
         }];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         [_tableView registerClass:[AnchorCell class] forCellReuseIdentifier:@"ACell"];
-        _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-            [self.anchorVM getDataCompletionHandle:^(NSError *error) {
-                [_tableView reloadData];
-                [_tableView.mj_header endRefreshing];
-            }];
-        }];
-        _tableView.rowHeight = 180;
+        // 因为cell只有一个无特殊, indexPath不需要
+        _tableView.rowHeight = [self.anchorVM cellHeightForIndexPath:nil];
+        // 去分割线
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        // 不能超
+        _tableView.bounces = NO;
     }
     return _tableView;
 }

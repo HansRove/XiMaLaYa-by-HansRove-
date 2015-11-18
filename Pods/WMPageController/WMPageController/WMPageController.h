@@ -17,14 +17,14 @@
     and continue to grow back after a while.
     If recieved too much times, the cache policy will stay at 'LowMemory' and don't grow back any more.
  */
-typedef NS_ENUM(NSUInteger, WMPageControllerCachePolicy){
+typedef NS_ENUM(NSUInteger, WMPageControllerCachePolicy) {
     WMPageControllerCachePolicyNoLimit   = 0,  // No limit
     WMPageControllerCachePolicyLowMemory = 1,  // Low Memory but may block when scroll
     WMPageControllerCachePolicyBalanced  = 3,  // Balanced ↑ and ↓
     WMPageControllerCachePolicyHigh      = 5   // High
 };
 
-@interface WMPageController : UIViewController
+@interface WMPageController : UIViewController <WMMenuViewDelegate, UIScrollViewDelegate>
 
 /**
  *  values and keys can set properties when initialize child controlelr (it's KVC)
@@ -174,6 +174,11 @@ typedef NS_ENUM(NSUInteger, WMPageControllerCachePolicy){
 @property (nonatomic, assign) CGFloat itemMargin;
 
 /**
+ *  顶部 menuView 和 scrollView 之间的间隙
+ */
+@property (nonatomic, assign) CGFloat menuViewBottom;
+
+/**
  *  顶部导航栏
  */
 @property (nonatomic, weak) WMMenuView *menuView;
@@ -193,5 +198,11 @@ typedef NS_ENUM(NSUInteger, WMPageControllerCachePolicy){
  *  @return instancetype
  */
 - (instancetype)initWithViewControllerClasses:(NSArray *)classes andTheirTitles:(NSArray *)titles;
+
+/**
+ *  A method in order to reload MenuView and child view controllers. If you had set `itemsMargins` or `itemsWidths` `values` and `keys` before, make sure you have update them also before you call this method. And most important, PAY ATTENTION TO THE COUNT OF THOSE ARRAY.
+    该方法用于重置刷新父控制器，该刷新包括顶部 MenuView 和 childViewControllers.如果之前设置过 `itemsMargins` 和 `itemsWidths` `values` 以及 `keys` 属性，请确保在调用 reload 之前也同时更新了这些属性。并且，最最最重要的，注意数组的个数以防止溢出。
+ */
+- (void)reloadData;
 
 @end

@@ -40,12 +40,20 @@
 		C26B96A61BF0BC5B005355A7 /* HRSoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C26B96A51BF0BC5B005355A7 /* HRSoundViewController.m */; };
 		C26B96AE1BF0C233005355A7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C26B96AD1BF0C233005355A7 /* ViewController.m */; };
 		C26B96C01BF0CEA4005355A7 /* FindTabsNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C26B96BF1BF0CEA4005355A7 /* FindTabsNetManager.m */; };
+		C2BB1A571BFC2C5D00963584 /* LiveRadioCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BB1A561BFC2C5D00963584 /* LiveRadioCell.m */; };
+		C2BB1A601BFC5D6600963584 /* NSString+PJR.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BB1A5B1BFC5D6600963584 /* NSString+PJR.m */; };
+		C2BB1A621BFC5D6600963584 /* UIView+Extesion.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BB1A5F1BFC5D6600963584 /* UIView+Extesion.m */; };
+		C2BB1A651BFC5E1F00963584 /* MBProgressHUD+HR.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BB1A641BFC5E1F00963584 /* MBProgressHUD+HR.m */; };
 		C2CFA7F91BFACD3100251B87 /* AnchorView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CFA7F81BFACD3100251B87 /* AnchorView.m */; };
 		C2CFA7FF1BFAD9E700251B87 /* AnchorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CFA7FE1BFAD9E700251B87 /* AnchorModel.m */; };
 		C2CFA8021BFADCB200251B87 /* AnchorViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CFA8011BFADCB200251B87 /* AnchorViewModel.m */; };
 		C2CFA8051BFB0CA100251B87 /* RankModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CFA8041BFB0CA100251B87 /* RankModel.m */; };
 		C2CFA8081BFB0E9D00251B87 /* RankCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CFA8071BFB0E9D00251B87 /* RankCell.m */; };
 		C2CFA80B1BFB153400251B87 /* RankViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CFA80A1BFB153400251B87 /* RankViewModel.m */; };
+		C2CFA8141BFB469000251B87 /* LiveModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CFA8131BFB469000251B87 /* LiveModel.m */; };
+		C2CFA8171BFB4A2A00251B87 /* LiveViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CFA8161BFB4A2A00251B87 /* LiveViewModel.m */; };
+		C2CFA81D1BFB4C2B00251B87 /* LiveRecommandCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CFA81C1BFB4C2B00251B87 /* LiveRecommandCell.m */; };
+		C2CFA8201BFB4C5100251B87 /* LiveTopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CFA81F1BFB4C5100251B87 /* LiveTopCell.m */; };
 		C2D050DB1BF5C0FA002C6F3E /* GuessLikeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D050DA1BF5C0FA002C6F3E /* GuessLikeModel.m */; };
 		C2D050DE1BF5C53B002C6F3E /* HomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D050DD1BF5C53B002C6F3E /* HomePageViewController.m */; };
 		C2D050EC1BF609B6002C6F3E /* ContentImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D050EB1BF609B6002C6F3E /* ContentImageView.m */; };
@@ -131,6 +139,14 @@
 		C26B96AD1BF0C233005355A7 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		C26B96BE1BF0CEA4005355A7 /* FindTabsNetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindTabsNetManager.h; sourceTree = "<group>"; };
 		C26B96BF1BF0CEA4005355A7 /* FindTabsNetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindTabsNetManager.m; sourceTree = "<group>"; };
+		C2BB1A551BFC2C5D00963584 /* LiveRadioCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveRadioCell.h; sourceTree = "<group>"; };
+		C2BB1A561BFC2C5D00963584 /* LiveRadioCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveRadioCell.m; sourceTree = "<group>"; };
+		C2BB1A5A1BFC5D6600963584 /* NSString+PJR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+PJR.h"; sourceTree = "<group>"; };
+		C2BB1A5B1BFC5D6600963584 /* NSString+PJR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+PJR.m"; sourceTree = "<group>"; };
+		C2BB1A5E1BFC5D6600963584 /* UIView+Extesion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extesion.h"; sourceTree = "<group>"; };
+		C2BB1A5F1BFC5D6600963584 /* UIView+Extesion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extesion.m"; sourceTree = "<group>"; };
+		C2BB1A631BFC5E1F00963584 /* MBProgressHUD+HR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+HR.h"; sourceTree = "<group>"; };
+		C2BB1A641BFC5E1F00963584 /* MBProgressHUD+HR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+HR.m"; sourceTree = "<group>"; };
 		C2CFA7F71BFACD3100251B87 /* AnchorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnchorView.h; sourceTree = "<group>"; };
 		C2CFA7F81BFACD3100251B87 /* AnchorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnchorView.m; sourceTree = "<group>"; };
 		C2CFA7FD1BFAD9E700251B87 /* AnchorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnchorModel.h; sourceTree = "<group>"; };
@@ -143,6 +159,14 @@
 		C2CFA8071BFB0E9D00251B87 /* RankCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankCell.m; sourceTree = "<group>"; };
 		C2CFA8091BFB153400251B87 /* RankViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankViewModel.h; sourceTree = "<group>"; };
 		C2CFA80A1BFB153400251B87 /* RankViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankViewModel.m; sourceTree = "<group>"; };
+		C2CFA8121BFB469000251B87 /* LiveModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveModel.h; sourceTree = "<group>"; };
+		C2CFA8131BFB469000251B87 /* LiveModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveModel.m; sourceTree = "<group>"; };
+		C2CFA8151BFB4A2A00251B87 /* LiveViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveViewModel.h; sourceTree = "<group>"; };
+		C2CFA8161BFB4A2A00251B87 /* LiveViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveViewModel.m; sourceTree = "<group>"; };
+		C2CFA81B1BFB4C2B00251B87 /* LiveRecommandCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveRecommandCell.h; sourceTree = "<group>"; };
+		C2CFA81C1BFB4C2B00251B87 /* LiveRecommandCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveRecommandCell.m; sourceTree = "<group>"; };
+		C2CFA81E1BFB4C5100251B87 /* LiveTopCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveTopCell.h; sourceTree = "<group>"; };
+		C2CFA81F1BFB4C5100251B87 /* LiveTopCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveTopCell.m; sourceTree = "<group>"; };
 		C2D050D91BF5C0FA002C6F3E /* GuessLikeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuessLikeModel.h; sourceTree = "<group>"; };
 		C2D050DA1BF5C0FA002C6F3E /* GuessLikeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuessLikeModel.m; sourceTree = "<group>"; };
 		C2D050DC1BF5C53B002C6F3E /* HomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageViewController.h; sourceTree = "<group>"; };
@@ -284,10 +308,10 @@
 				C26B965C1BF0B3CC005355A7 /* AppDelegate.h */,
 				C26B965D1BF0B3CC005355A7 /* AppDelegate.m */,
 				C26B96651BF0B3CC005355A7 /* Assets.xcassets */,
+				C2BB1A581BFC5D6600963584 /* Utilities */,
 				C26B96701BF0B617005355A7 /* Class */,
 				C26B96941BF0B617005355A7 /* Define */,
 				C26B96951BF0B617005355A7 /* Resource */,
-				C26B96961BF0B617005355A7 /* Util */,
 				C26B96971BF0B617005355A7 /* Vendor */,
 				C26B96591BF0B3CC005355A7 /* Supporting Files */,
 			);
@@ -418,6 +442,8 @@
 				C2CFA7FE1BFAD9E700251B87 /* AnchorModel.m */,
 				C2CFA8031BFB0CA100251B87 /* RankModel.h */,
 				C2CFA8041BFB0CA100251B87 /* RankModel.m */,
+				C2CFA8121BFB469000251B87 /* LiveModel.h */,
+				C2CFA8131BFB469000251B87 /* LiveModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -456,6 +482,8 @@
 				C2CFA8011BFADCB200251B87 /* AnchorViewModel.m */,
 				C2CFA8091BFB153400251B87 /* RankViewModel.h */,
 				C2CFA80A1BFB153400251B87 /* RankViewModel.m */,
+				C2CFA8151BFB4A2A00251B87 /* LiveViewModel.h */,
+				C2CFA8161BFB4A2A00251B87 /* LiveViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -623,19 +651,33 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
-		C26B96961BF0B617005355A7 /* Util */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Util;
-			sourceTree = "<group>";
-		};
 		C26B96971BF0B617005355A7 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
 				C2F21A261BF864BA00CB5397 /* iCarousel */,
 			);
 			path = Vendor;
+			sourceTree = "<group>";
+		};
+		C2BB1A581BFC5D6600963584 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				C2BB1A591BFC5D6600963584 /* Category */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		C2BB1A591BFC5D6600963584 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				C2BB1A5A1BFC5D6600963584 /* NSString+PJR.h */,
+				C2BB1A5B1BFC5D6600963584 /* NSString+PJR.m */,
+				C2BB1A5E1BFC5D6600963584 /* UIView+Extesion.h */,
+				C2BB1A5F1BFC5D6600963584 /* UIView+Extesion.m */,
+				C2BB1A631BFC5E1F00963584 /* MBProgressHUD+HR.h */,
+				C2BB1A641BFC5E1F00963584 /* MBProgressHUD+HR.m */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 		C2F21A261BF864BA00CB5397 /* iCarousel */ = {
@@ -670,6 +712,12 @@
 		C2F21A311BF8807600CB5397 /* 直播 */ = {
 			isa = PBXGroup;
 			children = (
+				C2BB1A551BFC2C5D00963584 /* LiveRadioCell.h */,
+				C2BB1A561BFC2C5D00963584 /* LiveRadioCell.m */,
+				C2CFA81B1BFB4C2B00251B87 /* LiveRecommandCell.h */,
+				C2CFA81C1BFB4C2B00251B87 /* LiveRecommandCell.m */,
+				C2CFA81E1BFB4C5100251B87 /* LiveTopCell.h */,
+				C2CFA81F1BFB4C5100251B87 /* LiveTopCell.m */,
 			);
 			name = "直播";
 			sourceTree = "<group>";
@@ -828,6 +876,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C26B96AE1BF0C233005355A7 /* ViewController.m in Sources */,
+				C2BB1A621BFC5D6600963584 /* UIView+Extesion.m in Sources */,
 				C2CFA7FF1BFAD9E700251B87 /* AnchorModel.m in Sources */,
 				C2F21A3C1BF8882500CB5397 /* CategorySpecialCell.m in Sources */,
 				C268A9111BF4C50000FEB50C /* MoreButton.m in Sources */,
@@ -843,10 +892,12 @@
 				C2F21A361BF881BA00CB5397 /* CategoryModel.m in Sources */,
 				C231FA4E1BF70FC6001064D1 /* SpecialCell.m in Sources */,
 				C2CFA7F91BFACD3100251B87 /* AnchorView.m in Sources */,
+				C2CFA81D1BFB4C2B00251B87 /* LiveRecommandCell.m in Sources */,
 				C2074A931BF209E00094E70D /* BaseViewModel.m in Sources */,
 				C26B965B1BF0B3CC005355A7 /* main.m in Sources */,
 				C268A8F61BF43F1E00FEB50C /* IntroduceCell.m in Sources */,
 				C2074A9C1BF212CE0094E70D /* LiveViewController.m in Sources */,
+				C2CFA8201BFB4C5100251B87 /* LiveTopCell.m in Sources */,
 				C2074A911BF209E00094E70D /* BaseNetManager.m in Sources */,
 				C21382371BFAB1E800DD1FB1 /* AnchorCell.m in Sources */,
 				C2F21A291BF864BA00CB5397 /* iCarousel.m in Sources */,
@@ -855,6 +906,8 @@
 				C2074A8E1BF209E00094E70D /* HRNavigationController.m in Sources */,
 				C2CFA8051BFB0CA100251B87 /* RankModel.m in Sources */,
 				C2CFA80B1BFB153400251B87 /* RankViewModel.m in Sources */,
+				C2CFA8171BFB4A2A00251B87 /* LiveViewModel.m in Sources */,
+				C2BB1A601BFC5D6600963584 /* NSString+PJR.m in Sources */,
 				C268A9081BF4A62200FEB50C /* HomePageModel.m in Sources */,
 				C2074A901BF209E00094E70D /* BaseModel.m in Sources */,
 				C2D050DB1BF5C0FA002C6F3E /* GuessLikeModel.m in Sources */,
@@ -862,10 +915,13 @@
 				C2074A9F1BF212FC0094E70D /* AnchorViewController.m in Sources */,
 				C268A9021BF4A58200FEB50C /* HomePageViewModel.m in Sources */,
 				C2CFA8081BFB0E9D00251B87 /* RankCell.m in Sources */,
+				C2BB1A651BFC5E1F00963584 /* MBProgressHUD+HR.m in Sources */,
 				C2E848871BF96E4700366E8A /* CategoryCommonCell.m in Sources */,
 				C26B969A1BF0BBD9005355A7 /* HRMeViewController.m in Sources */,
+				C2CFA8141BFB469000251B87 /* LiveModel.m in Sources */,
 				C268A90B1BF4A68400FEB50C /* FindTabsModel.m in Sources */,
 				C2074A8F1BF209E00094E70D /* HRTabBarController.m in Sources */,
+				C2BB1A571BFC2C5D00963584 /* LiveRadioCell.m in Sources */,
 				C23417EE1BF35A0700DE52FA /* FindPutCell.m in Sources */,
 				C231FA4B1BF6FF45001064D1 /* DiscoveryCell.m in Sources */,
 				C26B96A01BF0BC2F005355A7 /* HRDownloadViewController.m in Sources */,

@@ -31,7 +31,7 @@
         make.height.mas_equalTo(65);
     }];
     [btn addTarget:self action:@selector(click) forControlEvents:UIControlEventTouchUpInside];
-    self.title = @"hahah";
+//    self.title = @"hahah";
 }
 
 - (void)click {

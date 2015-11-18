@@ -8,6 +8,7 @@
 
 #import "DiscoveryCell.h"
 
+#define kDpicWidth 70
 @implementation DiscoveryCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
@@ -30,7 +31,7 @@
         [_coverIV mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.left.bottom.mas_equalTo(0);
 //            make.size.mas_equalTo(CGSizeMake(40, 40));
-            make.width.mas_equalTo(kSmallCellHight);  // 在宏文件中定义
+            make.width.mas_equalTo(kDpicWidth);  // 在宏文件中定义
         }];
     }
     return _coverIV;

@@ -32,8 +32,11 @@
 /** 从网络上获得榜单信息 */
 //http://mobile.ximalaya.com/mobile/discovery/v2/rankingList/group?channel=and-d10&device=android&includeActivity=true&includeSpecial=true&scale=2&version=4.3.32.2
 + (id)getRankPageCompletionHandle:(void(^)(id responseObject, NSError *error))completed;
-
+/**  从网络上获取直播信息 */
+// http://live.ximalaya.com/live-web/v1/getHomePageRadiosList?device=android
++ (id)getLivePageCompletionHandle:(void(^)(id responseObject, NSError *error))completed;
 
 /**  获取猜你喜欢 */
+//
 + (id)getGuessYouLickCompletionHandle:(void(^)(id responseObject, NSError *error))completed;
 @end

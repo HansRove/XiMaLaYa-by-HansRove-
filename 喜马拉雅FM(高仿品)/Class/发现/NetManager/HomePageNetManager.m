@@ -11,6 +11,7 @@
 #import "CategoryModel.h"  // 分类模型
 #import "AnchorModel.h"     // 主播模型
 #import "RankModel.h"        // 榜单模型
+#import "LiveModel.h"         // 直播模型
 #define kHomePath @"http://mobile.ximalaya.com/mobile/discovery/v1/recommends"
 #define kURLVersion @"version":@"4.3.20.2"
 #define kURLDevice @"device":@"ios"
@@ -55,5 +56,12 @@
     }];
 }
 
+/**  从网络上获取直播信息 */
+// http://live.ximalaya.com/live-web/v1/getHomePageRadiosList?device=android
++ (id)getLivePageCompletionHandle:(void(^)(id responseObject, NSError *error))completed {
+    return [self GET:@"http://live.ximalaya.com/live-web/v1/getHomePageRadiosList?device=android" parameters:nil complationHandle:^(id responseObject, NSError *error) {
+        completed([LiveModel mj_objectWithKeyValues:responseObject],error);
+    }];
+}
 
 @end

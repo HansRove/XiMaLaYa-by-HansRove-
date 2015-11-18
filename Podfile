@@ -11,7 +11,7 @@ pod ‘MJExtension’
 pod ‘WMPageController’
 pod ‘MJRefresh’
 pod ‘BlocksKit’
-
+pod ‘MBProgressHUD’
 
 end
 

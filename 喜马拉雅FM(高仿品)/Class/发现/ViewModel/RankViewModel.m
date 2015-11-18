@@ -62,4 +62,9 @@
     NSString *path = self.model.focusImages.list[index].pic;
     return [NSURL URLWithString:path];
 }
+
+// 改写父类cell高度方法
+-(CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath {
+    return 80;
+}
 @end

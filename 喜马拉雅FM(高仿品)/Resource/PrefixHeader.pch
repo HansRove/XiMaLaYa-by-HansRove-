@@ -64,7 +64,7 @@
 //#import <CocoaAsyncSocket.h>  //第三方socket通讯类库， 对系统CFNetwork类库进行了封装
 
 
-//#import <MBProgressHUD.h>       //实现安卓toast风格提示，弹出提示框架
+#import <MBProgressHUD.h>       //实现安卓toast风格提示，弹出提示框架
 
 
 //#import <SVProgressHUD.h>     //与MBProgressHUD功能相似，虽然Github排名靠前，但是个人偏爱上者

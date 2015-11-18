@@ -28,7 +28,12 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.tableView.mj_header beginRefreshing];
+    [MBProgressHUD showMessage:@"正在努力为您加载..."];
+    [self.homeVM getDataCompletionHandle:^(NSError *error) {
+        [MBProgressHUD hideHUD];
+        [self.tableView reloadData];
+        self.tableView.tableHeaderView  = [self headerView];
+    }];
 }
 
 #pragma mark - 自定义头部滚动视图
@@ -143,7 +148,7 @@ kRemoveCellSeparator
     if (indexPath.section == 1) {
         // 精品听单
         SpecialCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SCell"];
-        [cell.coverIV setImageWithURL:[self.homeVM coverURLForSection:indexPath.section index:indexPath.row] placeholderImage:[UIImage imageNamed:@"cell_bg_noData_2"]];
+        [cell.coverBtn setImageForState:UIControlStateNormal withURL:[self.homeVM coverURLForSection:indexPath.section index:indexPath.row] placeholderImage:[UIImage imageNamed:@"cell_bg_noData_2"]];
         cell.titleLb.text = [self.homeVM titleForSection:indexPath.section index:indexPath.row];
         cell.subTitleLb.text = [self.homeVM trackTitleForSection:indexPath.section index:indexPath.row];
         cell.footNoteLb.text = [self.homeVM footNoteForRow:indexPath.row];
@@ -244,17 +249,10 @@ kRemoveCellSeparator
         [_tableView registerClass:[DiscoveryCell class] forCellReuseIdentifier:@"DCell"];
         [_tableView registerClass:[SpecialCell class] forCellReuseIdentifier:@"SCell"];
         
-        _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-            [self.homeVM getDataCompletionHandle:^(NSError *error) {
-                NSLog(@"%@",error.userInfo);
-                _tableView.tableHeaderView  = [self headerView];
-                [_tableView reloadData];
-                [_tableView.mj_header endRefreshing];
-            }];
-        }];
-        
         // 去掉分割线
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        // 越界不能上下拉
+        _tableView.bounces = NO;
     }
     return _tableView;
 }

@@ -17,12 +17,12 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        // 117*47像素图
-        [self.attractBtn setImage:[UIImage imageNamed:@"find_radio_focuse"] forState:UIControlStateNormal];
-        // 点击后图
-        [self.attractBtn setImage:[UIImage imageNamed:@"find_radio_focuse_sel"] forState:UIControlStateSelected];
-        self.userInteractionEnabled = YES;
         
+        self.userInteractionEnabled = YES;
+        // 关注按钮点击事件
+        [self.attractBtn bk_addEventHandler:^(UIButton* sender) {
+            sender.selected = !sender.selected;
+        } forControlEvents:UIControlEventTouchUpInside];
     }
     return self;
 }
@@ -44,6 +44,7 @@
         [_anchorBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.left.mas_equalTo(2);
             make.right.bottom.mas_equalTo(-2);
+
         }];
         _anchorBtn.contentMode = UIViewContentModeScaleAspectFit;
 //        _anchorBtn.contentMode = UIViewContentModeScaleAspectFill;
@@ -51,10 +52,7 @@
         [_anchorBtn bk_addEventHandler:^(id sender) {
             NSLog(@"惦记了");
         } forControlEvents:UIControlEventTouchUpInside];
-       
-        
-//        btn.alpha = 0.4;
-//        _anchorIV.image.capInsets = UIEdgeInsetsMake(15, 15, 15, 15);
+
     }
     return _anchorBtn;
 }
@@ -81,9 +79,13 @@
             make.centerX.mas_equalTo(self.anchorBtn);
             make.size.mas_equalTo(CGSizeMake(60, 25));
         }];
-        
+        // 117*47像素图
+        [_attractBtn setImage:[UIImage imageNamed:@"find_radio_focuse"] forState:UIControlStateNormal];
+        // 点击后图
+        [_attractBtn setImage:[UIImage imageNamed:@"find_radio_focuse_sel"] forState:UIControlStateSelected];
     }
     return _attractBtn;
 }
-    
+
+
 @end

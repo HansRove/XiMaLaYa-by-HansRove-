@@ -11,7 +11,8 @@
  *  精品听单Cell
  */
 @interface SpecialCell : UITableViewCell
-@property (nonatomic,strong) UIImageView *coverIV;
+
+@property (nonatomic,strong) UIButton *coverBtn;
 @property (nonatomic,strong) UILabel *titleLb;
 @property (nonatomic,strong) UILabel *subTitleLb;
 // 10张专辑

@@ -17,6 +17,8 @@
 - (void)refreshDataCompletionHandle:(void(^)(NSError *error))completed;
 /** 获取数据 */
 - (void)getDataCompletionHandle:(void(^)(NSError *error))completed;
+/** 通过indexPath返回cell高*/
+- (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath;
 
 @end
 
