@@ -13,6 +13,7 @@
 
 #import "HomePageViewModel.h"
 #import "HomePageNetManager.h"  // 测试网络解析
+#import "MoreCotentNetManager.h"  //  测试
 
 @interface AppDelegate ()
 
@@ -23,7 +24,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-    [HomePageNetManager getLivePageCompletionHandle:^(id responseObject, NSError *error) {
+    NSString *parcentStr = [@"%E6%AD%A3%E8%83%BD%E9%87%8F%E5%8A%A0%E6%B2%B9%E7%AB%99" stringByRemovingPercentEncoding];
+    NSLog(@"%@",parcentStr);
+    
+    
+//    http://mobile.ximalaya.com/mobile/discovery/v1/category/album?calcDimension=hot&categoryId=1&device=android&pageId=1&pageSize=20&status=0&tagName=%E6%AD%A3%E8%83%BD%E9%87%8F%E5%8A%A0%E6%B2%B9%E7%AB%99
+    [MoreCotentNetManager getCategoryForCategoryId:1 tagName:@"" pageSize:20 completionHandle:^(id responseObject, NSError *error) {
         NSLog(@"");
     }];
     

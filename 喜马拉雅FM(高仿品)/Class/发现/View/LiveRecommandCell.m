@@ -77,7 +77,7 @@
         [_radioBtn0 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.left.mas_equalTo(3);
             make.right.mas_equalTo(-3);
-            make.bottom.mas_equalTo(-15);
+            make.bottom.mas_equalTo(-13);
         }];
     }
     return _radioBtn0;
@@ -89,7 +89,7 @@
         [_radioBtn1 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.left.mas_equalTo(3);
             make.right.mas_equalTo(-3);
-            make.bottom.mas_equalTo(-15);
+            make.bottom.mas_equalTo(-13);
         }];
     }
     return _radioBtn1;
@@ -101,7 +101,7 @@
         [_radioBtn2 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.left.mas_equalTo(3);
             make.right.mas_equalTo(-3);
-            make.bottom.mas_equalTo(-15);
+            make.bottom.mas_equalTo(-13);
         }];
     }
     return _radioBtn2;

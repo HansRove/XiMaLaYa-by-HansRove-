@@ -77,6 +77,9 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+    return NO;
+}
 
 #pragma mark - 懒加载
 - (CategoryViewModel *)categoryVM {

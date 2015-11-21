@@ -14,78 +14,37 @@
 #import "DiscoveryCell.h"
 #import "SpecialCell.h"
 #import "iCarousel.h"  // 制作头部循环滚动视图
+#import "FocusImageScrollView.h"  // 封装好的头部视图
 
-@interface HomePageViewController ()<UITableViewDataSource,UITableViewDelegate,iCarouselDataSource,iCarouselDelegate>
+#import "JumpViewController.h"
+
+#import "MoreViewController.h"  // 更多按钮需要跳转的控制器
+#import "MoreRecommendController.h"  // 推荐
+#import "MoreCategoryViewController.h"   // 其他类
+#import "MoreContentViewModel.h"    // 跳转VM
+
+@interface HomePageViewController ()<UITableViewDataSource,UITableViewDelegate,iCarouselDataSource,iCarouselDelegate,ContentImageViewDelegate, TitleViewDelegate>
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) HomePageViewModel *homeVM;
+
+// 跳转页VM
+@property (nonatomic,strong) MoreContentViewModel *moreVM;
+@property (nonatomic,assign) NSInteger categoryId;
+@property (nonatomic,strong) NSString *type;
 @end
 
 @implementation HomePageViewController
 { // 定义完全私有的属性 : 添加成员变量,因为不需要懒加载,所以不需要是属性
-    NSTimer *_timer;
-    iCarousel *_ic;
     UIPageControl *_pageControl;
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [MBProgressHUD showMessage:@"正在努力为您加载..."];
     [self.homeVM getDataCompletionHandle:^(NSError *error) {
         [MBProgressHUD hideHUD];
         [self.tableView reloadData];
-        self.tableView.tableHeaderView  = [self headerView];
     }];
-}
-
-#pragma mark - 自定义头部滚动视图
-/**  头部滚动视图 */
-- (UIView *)headerView {
-    [_timer invalidate];
-    // 当前没有头部滚动视图, 返回空对象nil
-    if (!self.homeVM.isExitsScrollView) {
-        return nil;
-    }
-    
-    //头部视图origin无效,宽度无效,肯定是与table同宽
-    UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, kWindowW/660*310)];
-    
-    // 添加滚动栏
-    _ic = [iCarousel new];
-    [headView addSubview:_ic];
-    [_ic mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(0);
-    }];
-    _ic.delegate = self;
-    _ic.dataSource = self;
-    // 如果只有一张图,则不可以滚动
-    _ic.scrollEnabled = self.homeVM.focusImgNumber != 1;
-//    _ic.scrollSpeed = 1;
-    // 让图片一张一张滚, 默认NO  滚一次到尾
-    _ic.pagingEnabled = YES;
-    
-    _pageControl = [UIPageControl new];
-    _pageControl.numberOfPages = self.homeVM.focusImgNumber;
-    [_ic addSubview:_pageControl];
-    [_pageControl mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.mas_equalTo(0);
-        make.bottom.mas_equalTo(-6);
-        make.centerX.mas_equalTo(0);
-        make.height.mas_equalTo(10);
-    }];
-    // 如果只有一张图,则不显示圆点
-    _pageControl.hidesForSinglePage = YES;
-    // 小圆点不与用户交互
-    _pageControl.userInteractionEnabled = NO;
-    // 小圆点颜色设置
-    _pageControl.pageIndicatorTintColor = [UIColor lightTextColor];
-    _pageControl.currentPageIndicatorTintColor = [UIColor whiteColor];
-    
-    // 计时器产生,开启滚动
-    if (self.homeVM.focusImgNumber > 1) {
-        _timer = [NSTimer bk_scheduledTimerWithTimeInterval:3 block:^(NSTimer *timer) {
-            [_ic scrollToItemAtIndex:_ic.currentItemIndex+1 animated:YES];
-        } repeats:YES];
-    }
-    return headView;
 }
 
 #pragma mark - iCarousel代理方法
@@ -165,14 +124,11 @@ kRemoveCellSeparator
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
         if (indexPath.section == self.homeVM.section-2) {  // 更多分类
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-//            [cell.imageView setImageWithURL:[self.homeVM entrancesURL] placeholderImage:[UIImage imageNamed:@"btn_01"] ];
             cell.imageView.image = [UIImage imageNamed:@"about_bad_feel"];
             cell.textLabel.text = @"更多分类";
         } else { // 热门直播
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
-//            cell.imageView.
-//            cell.imageView.backgroundColor = [UIColor yellowColor];
 #warning 此处图片加载有问题, 点击才出图(热门直播)
             [cell.imageView setImageWithURL:[self.homeVM entrancesURL] ];
             cell.textLabel.text = [self.homeVM entrancesTitle];
@@ -184,14 +140,23 @@ kRemoveCellSeparator
    
             cell.clickBtn0.titleLb.text = [self.homeVM titleForSection:indexPath.section index:0];
             [cell.clickBtn0 setImageWithURL:[self.homeVM coverURLForSection:indexPath.section index:0] placeholderImage:[UIImage imageNamed:@"cell_bg_noData_3"]];
+        // 定Tag值,跳转需要
+        cell.clickBtn0.tag = indexPath.section*10 + 0;
+        cell.clickBtn0.delegate = self;
         cell.detailLb0.text = [self.homeVM trackTitleForSection:indexPath.section index:0];
         
         cell.clickBtn1.titleLb.text = [self.homeVM titleForSection:indexPath.section index:1];
         [cell.clickBtn1 setImageWithURL:[self.homeVM coverURLForSection:indexPath.section index:1] placeholderImage:[UIImage imageNamed:@"cell_bg_noData_3"]];
+        // 定Tag值,跳转需要
+        cell.clickBtn1.tag = indexPath.section*10 + 1;
+        cell.clickBtn1.delegate = self;
         cell.detailLb1.text = [self.homeVM trackTitleForSection:indexPath.section index:1];
         
         cell.clickBtn2.titleLb.text = [self.homeVM titleForSection:indexPath.section index:2];
         [cell.clickBtn2 setImageWithURL:[self.homeVM coverURLForSection:indexPath.section index:2] placeholderImage:[UIImage imageNamed:@"cell_bg_noData_3"]];
+        // 定Tag值,跳转需要
+        cell.clickBtn2.tag = indexPath.section*10 + 2;
+        cell.clickBtn2.delegate = self;
         cell.detailLb2.text = [self.homeVM trackTitleForSection:indexPath.section index:2];
         return cell;
     }
@@ -199,7 +164,11 @@ kRemoveCellSeparator
 // 配置分组头视图
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     if(section < self.homeVM.section-2) {
-        return [[TitleView alloc] initWithTitle:[self.homeVM mainTitleForSection:section] hasMore:[self.homeVM hasMoreForSection:section]];
+        TitleView *moreView = [[TitleView alloc] initWithTitle:[self.homeVM mainTitleForSection:section] hasMore:[self.homeVM hasMoreForSection:section]];
+        // 定义TitleView的tag  可以通过tag知section
+        moreView.tag = section;
+        moreView.delegate = self;
+        return moreView;
     } else { // 最后两组无
         return nil;
     }
@@ -227,8 +196,91 @@ kRemoveCellSeparator
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
+- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+    return NO;
+}
+
+#pragma mark - ContentImageViewDelegate代理实现跳转
+- (void)contentImageViewClick:(NSInteger)tag {
+    // 第几分区
+    NSInteger section = tag/10;
+    // 第几个按钮
+    NSInteger row = tag%10;
+    NSLog(@"%ld-----%ld",section,row);
+}
+
+#pragma mark - 点击更多按钮代理实现跳转
+- (void)titleViewDidClick:(NSInteger)tag {
+    NSLog(@"Controller: %ld",tag);
+    // 网络加载数据 VM获取
+    // 创建控制器(tag>3)
+    
+    _categoryId = [self.homeVM categoryIdForSection:tag];
+    _type = [self.homeVM contentTypeForSection:tag];
+    
+//    MoreViewController *vc = [[MoreViewController alloc] initWithViewControllerClasses:[self viewControllerClassesForTag:tag] andTheirTitles:[self.moreVM tagsArrayForSection:tag]];
+//    vc.keys = [self vcKeysForTag:tag];
+//    vc.values = [self vcValuesForTag:tag];
+    JumpViewController *vc  = nil;
+    if (tag>=2) {
+        // 如果>=2  跳转到中介页
+        vc = [[JumpViewController alloc] initWithCategoryId:_categoryId contentType:_type tag:tag];
+        
+    }
+    // push 跳转控制器 隐藏tabbar
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:NO];
+    
+}
+
+/**  创建控制器数组 要与TheirTitles对应上*/
+- (NSArray *)viewControllerClassesForTag:(NSInteger)tag {
+    NSMutableArray *controllerArr = [NSMutableArray array];
+    // 加推荐页
+    _categoryId = [self.homeVM categoryIdForSection:tag];
+    _type = [self.homeVM contentTypeForSection:tag];
+    
+//    [controllerArr addObject:[[MoreRecommendController alloc] initWithViewModel:self.moreVM]];
+    [controllerArr addObject:[MoreRecommendController class]];
+    // 加同类分页
+    NSInteger count = [self.moreVM tagsArrayForSection:tag].count;
+    // 因为0被推荐页占有所以从0开始
+    for (int i=1; i<count; i++) {
+        [controllerArr addObject:[MoreCategoryViewController class]];
+    }
+    return [controllerArr copy];
+}
+
+#pragma mark - 制作控制器的键值
+/** 提供每个VC对应的key值数组 */
+- (NSArray *)vcKeysForTag:(NSInteger)tag {
+    NSMutableArray *keyArr = [NSMutableArray new];
+    NSInteger count = [self.moreVM tagsArrayForSection:tag].count + 1;
+    for (int i = 0; i<count; i++) {
+        [keyArr addObject:@"name"];
+    }
+    return [keyArr copy];
+}
+/** 提供每个VC对应的values值数组 */
+- (NSArray *)vcValuesForTag:(NSInteger)tag {
+    NSMutableArray *valueArr = [NSMutableArray new];
+    NSInteger count = [self.moreVM tagsArrayForSection:tag].count + 1;
+    for (NSString *name in [self.moreVM tagsArrayForSection:tag]) {
+        [valueArr addObject:name];
+    }
+    return [valueArr copy];
+}
 
 #pragma mark - 懒加载
+// 跳转页VM懒加载
+- (MoreContentViewModel *)moreVM {
+    if (!_moreVM) {
+        _moreVM = [[MoreContentViewModel alloc] initWithCategoryId:_categoryId contentType:_type];
+    }
+    return _moreVM;
+}
+     
+     
 - (HomePageViewModel *)homeVM {
     if (!_homeVM) {
         _homeVM = [HomePageViewModel new];
@@ -253,6 +305,13 @@ kRemoveCellSeparator
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         // 越界不能上下拉
         _tableView.bounces = NO;
+        
+        // 封装好的头部滚动视图
+        FocusImageScrollView *scrollView = [[FocusImageScrollView alloc] initWithFocusImgNumber:self.homeVM.focusImgNumber];
+        scrollView.ic.delegate = self;
+        scrollView.ic.dataSource = self;
+        _pageControl = scrollView.pageControl;
+        _tableView.tableHeaderView = scrollView;
     }
     return _tableView;
 }

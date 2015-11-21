@@ -13,8 +13,9 @@
 - (instancetype)init {
     if (self = [super init]) {
         self.userInteractionEnabled = YES;
-        self.coverView.alpha = 0.6;
-        self.titleLb.font = [UIFont systemFontOfSize:12];
+        self.coverView.alpha = 0.4;
+        self.titleLb.font = [UIFont boldSystemFontOfSize:12];
+        
         self.button.hidden = NO;
     }
     return self;
@@ -25,13 +26,15 @@
 
 - (UIButton *)button {
     if (!_button) {
+        
         _button = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_button addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_button];
         [_button mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.top.left.mas_equalTo(3);
+//            make.right.bottom.mas_equalTo(-3);
             make.edges.mas_equalTo(0);
         }];
-        
+        [_button addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
     }
     return _button;
 }
@@ -70,6 +73,7 @@
 - (void)buttonClick{
     if ([self.delegate respondsToSelector:@selector(contentImageViewClick:)]) {
         [self.delegate contentImageViewClick:self.tag];
+        NSLog(@"上上");
     }
     NSLog(@"按钮被点击 %ld",self.tag);
 }

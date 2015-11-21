@@ -61,7 +61,7 @@
         [_titleLb mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.mas_equalTo(self.arrowIV);
             make.left.mas_equalTo(self.arrowIV.mas_right).mas_equalTo(4);
-            make.width.mas_equalTo(80);
+            make.width.mas_equalTo(150);
         }];
         _titleLb.font = [UIFont systemFontOfSize:13];
         _titleLb.text = _title;
@@ -76,7 +76,6 @@
             make.right.mas_equalTo(-5);
             make.centerY.mas_equalTo(self.titleLb);
             make.size.mas_equalTo(CGSizeMake(60, 20));
-//            make.bottom.mas_equalTo(0);
         }];
         
         [_moreBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
@@ -92,6 +91,9 @@
 }
 
 - (void)click {
-    NSLog(@"更多按钮被点击");
+    if ([self.delegate respondsToSelector:@selector(titleViewDidClick:)]) {
+        [self.delegate titleViewDidClick:self.tag];
+    }
+    NSLog(@"更多按钮被点击 %ld",self.tag);
 }
 @end

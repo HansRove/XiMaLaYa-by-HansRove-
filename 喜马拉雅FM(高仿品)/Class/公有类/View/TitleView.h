@@ -8,7 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+// 监听更多按钮点击事件协议
+@protocol TitleViewDelegate <NSObject>
+
+- (void)titleViewDidClick:(NSInteger)tag;
+
+@end
+
 @interface TitleView : UIView
+
+// 添加代理
+@property (nonatomic,weak) id<TitleViewDelegate> delegate;
 
 - (instancetype)initWithTitle:(NSString *)title hasMore:(BOOL)more;
 

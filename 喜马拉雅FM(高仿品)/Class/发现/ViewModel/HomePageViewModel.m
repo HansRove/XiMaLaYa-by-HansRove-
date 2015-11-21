@@ -167,6 +167,25 @@
     return [NSURL URLWithString:path];
 }
 
+
+#pragma mark - 跳转需要值
+- (NSInteger)categoryIdForSection:(NSInteger)section {
+    if (section >=3 && section<= 15) {
+        return self.model.hotRecommends.list[section-3].categoryId;
+    } else {
+        return 0;
+    }
+}
+- (NSString *)contentTypeForSection:(NSInteger)section {
+    if (section >=3 && section<= 15) {
+        return self.model.hotRecommends.list[section-3].contentType;
+    } else {
+        return nil;
+    }
+}
+
+
+
 #pragma mark - 懒加载
 - (NSInteger)discoverCount {
    DiscoveryC *discover =  self.model.discoveryColumns;

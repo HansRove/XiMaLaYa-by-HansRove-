@@ -38,5 +38,5 @@
 
 /**  获取猜你喜欢 */
 //
-+ (id)getGuessYouLickCompletionHandle:(void(^)(id responseObject, NSError *error))completed;
+//+ (id)getGuessYouLickCompletionHandle:(void(^)(id responseObject, NSError *error))completed;
 @end

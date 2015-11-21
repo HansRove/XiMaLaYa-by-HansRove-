@@ -18,6 +18,8 @@
 
 @implementation AnchorViewController
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [MBProgressHUD showMessage:@"正在努力为您加载..."];
@@ -25,6 +27,7 @@
         [MBProgressHUD hideHUD];
         [self.tableView reloadData];
     }];
+    
 }
 
 #pragma mark - UITableView代理协议
@@ -61,6 +64,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+    return NO;
 }
 
 kRemoveCellSeparator

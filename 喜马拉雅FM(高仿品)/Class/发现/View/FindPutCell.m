@@ -24,11 +24,9 @@
         _clickBtn0 = [ContentImageView new];
         [self.contentView addSubview:_clickBtn0];
         [_clickBtn0 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_equalTo(0);
             make.left.mas_equalTo(10);
             make.size.mas_equalTo(CGSizeMake(kRect, kRect));
         }];
-        _clickBtn0.backgroundColor = [UIColor redColor];
     }
     return _clickBtn0;
 }
@@ -41,7 +39,6 @@
             make.left.mas_equalTo(self.clickBtn0.mas_right).mas_equalTo(10);
             make.size.mas_equalTo(self.clickBtn0);
         }];
-        _clickBtn1.backgroundColor = [UIColor yellowColor];
     }
     return _clickBtn1;
 }
@@ -53,9 +50,7 @@
             make.top.mas_equalTo(0);
             make.size.mas_equalTo(self.clickBtn0);
             make.left.mas_equalTo(self.clickBtn1.mas_right).mas_equalTo(10);
-//            make.right.mas_equalTo(-10);
         }];
-        _clickBtn2.backgroundColor = [UIColor greenColor];
     }
     return _clickBtn2;
 }

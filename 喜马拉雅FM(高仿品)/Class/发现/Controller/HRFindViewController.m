@@ -28,7 +28,9 @@
     dispatch_once(&onceToken, ^{
        HRFindViewController *findVC = [[HRFindViewController alloc] initWithViewControllerClasses:[self ViewControllerClasses] andTheirTitles:@[@"推荐",@"分类",@"直播",@"榜单",@"主播"]];
 //        WMPageController的设置
-        
+        findVC.menuViewStyle = WMMenuViewStyleLine;
+        findVC.progressColor = [UIColor redColor];
+        findVC.progressHeight = 3.5;
         navi = [[UINavigationController alloc] initWithRootViewController:findVC];
     });
     return navi;

@@ -47,7 +47,6 @@
 - (NSString *)footNoteForRow:(NSInteger)row;
 
 /**  给属性方法*/
-
 // 热门直播图片地址
 - (NSURL *)entrancesURL;
 - (NSString *)entrancesTitle;
@@ -60,5 +59,9 @@
 /** 滚动展示栏(焦点图)的图片地址 */
 - (NSURL *)focusImgURLForIndex:(NSInteger)index;
 
+
+#pragma mark - 跳转需要值
+- (NSInteger)categoryIdForSection:(NSInteger)section;
+- (NSString *)contentTypeForSection:(NSInteger)section;
 
 @end
