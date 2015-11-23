@@ -24,14 +24,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-    NSString *parcentStr = [@"%E6%AD%A3%E8%83%BD%E9%87%8F%E5%8A%A0%E6%B2%B9%E7%AB%99" stringByRemovingPercentEncoding];
+    NSString *parcentStr = [@"%E6%9B%B4%E5%A4%9A" stringByRemovingPercentEncoding];
     NSLog(@"%@",parcentStr);
     
-    
-//    http://mobile.ximalaya.com/mobile/discovery/v1/category/album?calcDimension=hot&categoryId=1&device=android&pageId=1&pageSize=20&status=0&tagName=%E6%AD%A3%E8%83%BD%E9%87%8F%E5%8A%A0%E6%B2%B9%E7%AB%99
-    [MoreCotentNetManager getCategoryForCategoryId:1 tagName:@"" pageSize:20 completionHandle:^(id responseObject, NSError *error) {
-        NSLog(@"");
-    }];
+// http://mobile.ximalaya.com/mobile/discovery/v1/recommend/editor?device=android&pageId=1&pageSize=20&title=%E6%9B%B4%E5%A4%9A
+
     
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];

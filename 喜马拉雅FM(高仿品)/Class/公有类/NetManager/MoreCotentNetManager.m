@@ -10,18 +10,26 @@
 #import "ContentsModel.h"
 #import "MenusModel.h"
 #import "ContentCategoryModel.h"
+#import "EditorModel.h"
+#import "SpecialModel.h"
 
 #define kURLPath @"http://mobile.ximalaya.com/mobile/discovery/v2/category/recommends"
 #define kURLCategoryPath @"http://mobile.ximalaya.com/mobile/discovery/v2/category/recommends"
 #define kURLAlbumPath @"http://mobile.ximalaya.com/mobile/discovery/v1/category/album"
+// 小编推荐栏 更多跳转URL
+#define KURLEditor @"http://mobile.ximalaya.com/mobile/discovery/v1/recommend/editor"
+// 精品听单栏 更多跳转URL
+#define KURLSpecial @"http://mobile.ximalaya.com/m/subject_list"
+
 #define kURLVersion @"version":@"4.3.26.2"
 #define kURLDevice @"device":@"ios"
 #define KURLScale @"scale":@2
 #define kURLCalcDimension @"calcDimension":@"hot"
 #define kURLPageID @"pageId":@1
 #define kURLStatus  @"status":@0
+#define KURLPer_page @"per_page":@10
 // 汉字UTF8进行转换并转入字典
-//#define kURLTitle @"title":[@"更多" stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]
+#define kURLMoreTitle @"title":[@"更多" stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]
 
 @implementation MoreCotentNetManager
 
@@ -47,5 +55,22 @@
     }];
 }
 
+/**  解析,小编推荐更多数据模型*/
+// http://mobile.ximalaya.com/mobile/discovery/v1/recommend/editor?device=android&pageId=1&pageSize=20&title=%E6%9B%B4%E5%A4%9A
++ (id)getEditorMoreForPageSize:(NSInteger)size completionHandle:(void(^)(id responseObject, NSError *error))completed {
+    NSDictionary *params = @{kURLPageID,@"pageSize":@(size),kURLDevice,kURLMoreTitle};
+    return [self GET:KURLEditor parameters:params complationHandle:^(id responseObject, NSError *error) {
+        completed([EditorModel mj_objectWithKeyValues:responseObject],error);
+    }];
+}
+
+/**  解析,精品听单更多数据模型  加载更多通过page*/
+// http://mobile.ximalaya.com/m/subject_list?device=android&page=1&per_page=10&title=%E6%9B%B4%E5%A4%9A
++ (id)getSpecialForPage:(NSInteger)page completionHandle:(void(^)(id responseObject, NSError *error))completed {
+    NSDictionary *params = @{kURLDevice,KURLPer_page,kURLMoreTitle,@"page":@(page)};
+    return [self GET:KURLSpecial parameters:params complationHandle:^(id responseObject, NSError *error) {
+        completed([SpecialModel mj_objectWithKeyValues:responseObject],error);
+    }];
+}
 
 @end

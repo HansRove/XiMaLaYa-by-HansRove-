@@ -35,7 +35,6 @@
         [self.contentView addSubview:imageView];
         [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(10);
-            make.bottom.mas_equalTo(-5);
             make.centerY.mas_equalTo(0);
             make.width.height.mas_equalTo(kSpicWidth);
         }];

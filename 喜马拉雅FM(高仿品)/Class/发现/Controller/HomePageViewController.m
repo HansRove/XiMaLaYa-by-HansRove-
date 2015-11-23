@@ -17,6 +17,8 @@
 #import "FocusImageScrollView.h"  // 封装好的头部视图
 
 #import "JumpViewController.h"
+#import "EditorMoreViewController.h"
+#import "SpecialMoreViewController.h"
 
 #import "MoreViewController.h"  // 更多按钮需要跳转的控制器
 #import "MoreRecommendController.h"  // 推荐
@@ -124,13 +126,13 @@ kRemoveCellSeparator
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
         if (indexPath.section == self.homeVM.section-2) {  // 更多分类
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            cell.imageView.image = [UIImage imageNamed:@"about_bad_feel"];
+            cell.imageView.image = [UIImage imageNamed:@"findsubject_small_bg"];
             cell.textLabel.text = @"更多分类";
         } else { // 热门直播
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
-#warning 此处图片加载有问题, 点击才出图(热门直播)
-            [cell.imageView setImageWithURL:[self.homeVM entrancesURL] ];
+// 此处图片加载有问题, 点击才出图(热门直播)setImageWithURL:[self.homeVM entrancesURL] 
+            cell.imageView.image = [UIImage imageNamed:@"live"];
             cell.textLabel.text = [self.homeVM entrancesTitle];
         }
         return cell;
@@ -221,15 +223,24 @@ kRemoveCellSeparator
 //    MoreViewController *vc = [[MoreViewController alloc] initWithViewControllerClasses:[self viewControllerClassesForTag:tag] andTheirTitles:[self.moreVM tagsArrayForSection:tag]];
 //    vc.keys = [self vcKeysForTag:tag];
 //    vc.values = [self vcValuesForTag:tag];
-    JumpViewController *vc  = nil;
+    if (tag == 0) {
+        EditorMoreViewController *vc = [EditorMoreViewController new];
+        // push 跳转控制器 隐藏tabbar
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:NO];
+    } else if(tag == 1) {
+        SpecialMoreViewController *vc = [SpecialMoreViewController new];
+        [self.navigationController pushViewController:vc animated:NO];
+    }
     if (tag>=2) {
         // 如果>=2  跳转到中介页
-        vc = [[JumpViewController alloc] initWithCategoryId:_categoryId contentType:_type tag:tag];
+        JumpViewController *vc = [[JumpViewController alloc] initWithCategoryId:_categoryId contentType:_type tag:tag];
+        // push 跳转控制器 隐藏tabbar
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:NO];
         
     }
-    // push 跳转控制器 隐藏tabbar
-    vc.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:vc animated:NO];
+    
     
 }
 

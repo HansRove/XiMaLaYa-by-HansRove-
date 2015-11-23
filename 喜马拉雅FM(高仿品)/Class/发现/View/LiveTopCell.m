@@ -70,9 +70,10 @@
         _subTitleLb.font = [UIFont systemFontOfSize:13];
         
         // 增加各播放小视图
-        UIImageView *playIV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"find_hotuser_play"]];
-        [self.contentView addSubview:playIV];
-        [playIV mas_makeConstraints:^(MASConstraintMaker *make) {
+        UIButton *playBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [playBtn setBackgroundImage:[UIImage imageNamed:@"find_hotuser_play"] forState:UIControlStateNormal];
+        [self.contentView addSubview:playBtn];
+        [playBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.mas_equalTo(0);
             make.right.mas_equalTo(-10);
             make.size.mas_equalTo(CGSizeMake(20, 20));

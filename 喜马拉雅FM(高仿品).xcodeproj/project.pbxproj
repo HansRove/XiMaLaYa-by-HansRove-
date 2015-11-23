@@ -17,6 +17,9 @@
 		C2074A9C1BF212CE0094E70D /* LiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2074A9B1BF212CE0094E70D /* LiveViewController.m */; };
 		C2074A9F1BF212FC0094E70D /* AnchorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2074A9E1BF212FC0094E70D /* AnchorViewController.m */; };
 		C2074AA21BF2132C0094E70D /* RankingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2074AA11BF2132C0094E70D /* RankingViewController.m */; };
+		C209ED8C1C00486B00CE5907 /* SpecialModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C209ED8B1C00486B00CE5907 /* SpecialModel.m */; };
+		C209ED8F1C00494A00CE5907 /* SpecialMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C209ED8E1C00494A00CE5907 /* SpecialMoreViewController.m */; };
+		C209ED921C0049AA00CE5907 /* SpecialMoreViewMoel.m in Sources */ = {isa = PBXBuildFile; fileRef = C209ED911C0049AA00CE5907 /* SpecialMoreViewMoel.m */; };
 		C21382371BFAB1E800DD1FB1 /* AnchorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C21382361BFAB1E800DD1FB1 /* AnchorCell.m */; };
 		C231FA4B1BF6FF45001064D1 /* DiscoveryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C231FA4A1BF6FF45001064D1 /* DiscoveryCell.m */; };
 		C231FA4E1BF70FC6001064D1 /* SpecialCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C231FA4D1BF70FC6001064D1 /* SpecialCell.m */; };
@@ -40,6 +43,11 @@
 		C26B96C01BF0CEA4005355A7 /* FindTabsNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C26B96BF1BF0CEA4005355A7 /* FindTabsNetManager.m */; };
 		C27242941BFEC9D10082769D /* MoreCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C27242931BFEC9D10082769D /* MoreCategoryCell.m */; };
 		C272429A1BFF501B0082769D /* FocusImageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = C27242991BFF501B0082769D /* FocusImageScrollView.m */; };
+		C29AAA281C000B360041BC7C /* EditorMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C29AAA271C000B360041BC7C /* EditorMoreViewController.m */; };
+		C29AAA2B1C000B9C0041BC7C /* EditorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C29AAA2A1C000B9C0041BC7C /* EditorModel.m */; };
+		C29AAA2E1C00189E0041BC7C /* EditorMoreViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C29AAA2D1C00189E0041BC7C /* EditorMoreViewModel.m */; };
+		C29AAA311C001A4A0041BC7C /* MoreViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C29AAA301C001A4A0041BC7C /* MoreViewModel.m */; };
+		C29AAA341C001E1B0041BC7C /* EditorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C29AAA331C001E1B0041BC7C /* EditorCell.m */; };
 		C2BB1A571BFC2C5D00963584 /* LiveRadioCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BB1A561BFC2C5D00963584 /* LiveRadioCell.m */; };
 		C2BB1A601BFC5D6600963584 /* NSString+PJR.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BB1A5B1BFC5D6600963584 /* NSString+PJR.m */; };
 		C2BB1A621BFC5D6600963584 /* UIView+Extesion.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BB1A5F1BFC5D6600963584 /* UIView+Extesion.m */; };
@@ -101,6 +109,12 @@
 		C2074A9E1BF212FC0094E70D /* AnchorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnchorViewController.m; sourceTree = "<group>"; };
 		C2074AA01BF2132C0094E70D /* RankingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankingViewController.h; sourceTree = "<group>"; };
 		C2074AA11BF2132C0094E70D /* RankingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankingViewController.m; sourceTree = "<group>"; };
+		C209ED8A1C00486B00CE5907 /* SpecialModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialModel.h; sourceTree = "<group>"; };
+		C209ED8B1C00486B00CE5907 /* SpecialModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialModel.m; sourceTree = "<group>"; };
+		C209ED8D1C00494A00CE5907 /* SpecialMoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialMoreViewController.h; sourceTree = "<group>"; };
+		C209ED8E1C00494A00CE5907 /* SpecialMoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialMoreViewController.m; sourceTree = "<group>"; };
+		C209ED901C0049AA00CE5907 /* SpecialMoreViewMoel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialMoreViewMoel.h; sourceTree = "<group>"; };
+		C209ED911C0049AA00CE5907 /* SpecialMoreViewMoel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialMoreViewMoel.m; sourceTree = "<group>"; };
 		C21382351BFAB1E800DD1FB1 /* AnchorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnchorCell.h; sourceTree = "<group>"; };
 		C21382361BFAB1E800DD1FB1 /* AnchorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnchorCell.m; sourceTree = "<group>"; };
 		C231FA491BF6FF45001064D1 /* DiscoveryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoveryCell.h; sourceTree = "<group>"; };
@@ -147,6 +161,16 @@
 		C27242931BFEC9D10082769D /* MoreCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreCategoryCell.m; sourceTree = "<group>"; };
 		C27242981BFF501B0082769D /* FocusImageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FocusImageScrollView.h; sourceTree = "<group>"; };
 		C27242991BFF501B0082769D /* FocusImageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FocusImageScrollView.m; sourceTree = "<group>"; };
+		C29AAA261C000B360041BC7C /* EditorMoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditorMoreViewController.h; sourceTree = "<group>"; };
+		C29AAA271C000B360041BC7C /* EditorMoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditorMoreViewController.m; sourceTree = "<group>"; };
+		C29AAA291C000B9C0041BC7C /* EditorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditorModel.h; sourceTree = "<group>"; };
+		C29AAA2A1C000B9C0041BC7C /* EditorModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditorModel.m; sourceTree = "<group>"; };
+		C29AAA2C1C00189E0041BC7C /* EditorMoreViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditorMoreViewModel.h; sourceTree = "<group>"; };
+		C29AAA2D1C00189E0041BC7C /* EditorMoreViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditorMoreViewModel.m; sourceTree = "<group>"; };
+		C29AAA2F1C001A4A0041BC7C /* MoreViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreViewModel.h; sourceTree = "<group>"; };
+		C29AAA301C001A4A0041BC7C /* MoreViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreViewModel.m; sourceTree = "<group>"; };
+		C29AAA321C001E1B0041BC7C /* EditorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditorCell.h; sourceTree = "<group>"; };
+		C29AAA331C001E1B0041BC7C /* EditorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditorCell.m; sourceTree = "<group>"; };
 		C2BB1A551BFC2C5D00963584 /* LiveRadioCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveRadioCell.h; sourceTree = "<group>"; };
 		C2BB1A561BFC2C5D00963584 /* LiveRadioCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveRadioCell.m; sourceTree = "<group>"; };
 		C2BB1A5A1BFC5D6600963584 /* NSString+PJR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+PJR.h"; sourceTree = "<group>"; };
@@ -260,18 +284,15 @@
 		C2074A7D1BF209E00094E70D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C29AAA251C000AD60041BC7C /* 热门类更多 */,
 				C2074A7E1BF209E00094E70D /* HRNavigationController.h */,
 				C2074A7F1BF209E00094E70D /* HRNavigationController.m */,
 				C2074A801BF209E00094E70D /* HRTabBarController.h */,
 				C2074A811BF209E00094E70D /* HRTabBarController.m */,
-				C2EB4EC01BFE0366005115C5 /* JumpViewController.h */,
-				C2EB4EC11BFE0366005115C5 /* JumpViewController.m */,
-				C2EB4EAB1BFD6E8F005115C5 /* MoreViewController.h */,
-				C2EB4EAC1BFD6E8F005115C5 /* MoreViewController.m */,
-				C2EB4EB71BFDB457005115C5 /* MoreRecommendController.h */,
-				C2EB4EB81BFDB457005115C5 /* MoreRecommendController.m */,
-				C2EB4EB11BFDB0E1005115C5 /* MoreCategoryViewController.h */,
-				C2EB4EB21BFDB0E1005115C5 /* MoreCategoryViewController.m */,
+				C29AAA261C000B360041BC7C /* EditorMoreViewController.h */,
+				C29AAA271C000B360041BC7C /* EditorMoreViewController.m */,
+				C209ED8D1C00494A00CE5907 /* SpecialMoreViewController.h */,
+				C209ED8E1C00494A00CE5907 /* SpecialMoreViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -287,6 +308,10 @@
 				C2BB1A6A1BFCAFC300963584 /* ContentsModel.m */,
 				C2EB4EAE1BFDACCB005115C5 /* ContentCategoryModel.h */,
 				C2EB4EAF1BFDACCB005115C5 /* ContentCategoryModel.m */,
+				C29AAA291C000B9C0041BC7C /* EditorModel.h */,
+				C29AAA2A1C000B9C0041BC7C /* EditorModel.m */,
+				C209ED8A1C00486B00CE5907 /* SpecialModel.h */,
+				C209ED8B1C00486B00CE5907 /* SpecialModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -315,6 +340,8 @@
 				C27242931BFEC9D10082769D /* MoreCategoryCell.m */,
 				C27242981BFF501B0082769D /* FocusImageScrollView.h */,
 				C27242991BFF501B0082769D /* FocusImageScrollView.m */,
+				C29AAA321C001E1B0041BC7C /* EditorCell.h */,
+				C29AAA331C001E1B0041BC7C /* EditorCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -324,10 +351,16 @@
 			children = (
 				C2074A8C1BF209E00094E70D /* BaseViewModel.h */,
 				C2074A8D1BF209E00094E70D /* BaseViewModel.m */,
+				C29AAA2F1C001A4A0041BC7C /* MoreViewModel.h */,
+				C29AAA301C001A4A0041BC7C /* MoreViewModel.m */,
 				C2EB4EBA1BFDB5AD005115C5 /* MoreContentViewModel.h */,
 				C2EB4EBB1BFDB5AD005115C5 /* MoreContentViewModel.m */,
 				C2EB4EBD1BFDE981005115C5 /* MoreCategoryViewModel.h */,
 				C2EB4EBE1BFDE981005115C5 /* MoreCategoryViewModel.m */,
+				C29AAA2C1C00189E0041BC7C /* EditorMoreViewModel.h */,
+				C29AAA2D1C00189E0041BC7C /* EditorMoreViewModel.m */,
+				C209ED901C0049AA00CE5907 /* SpecialMoreViewMoel.h */,
+				C209ED911C0049AA00CE5907 /* SpecialMoreViewMoel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -703,6 +736,21 @@
 			path = Vendor;
 			sourceTree = "<group>";
 		};
+		C29AAA251C000AD60041BC7C /* 热门类更多 */ = {
+			isa = PBXGroup;
+			children = (
+				C2EB4EC01BFE0366005115C5 /* JumpViewController.h */,
+				C2EB4EC11BFE0366005115C5 /* JumpViewController.m */,
+				C2EB4EAB1BFD6E8F005115C5 /* MoreViewController.h */,
+				C2EB4EAC1BFD6E8F005115C5 /* MoreViewController.m */,
+				C2EB4EB71BFDB457005115C5 /* MoreRecommendController.h */,
+				C2EB4EB81BFDB457005115C5 /* MoreRecommendController.m */,
+				C2EB4EB11BFDB0E1005115C5 /* MoreCategoryViewController.h */,
+				C2EB4EB21BFDB0E1005115C5 /* MoreCategoryViewController.m */,
+			);
+			name = "热门类更多";
+			sourceTree = "<group>";
+		};
 		C2BB1A581BFC5D6600963584 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -917,6 +965,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C29AAA2B1C000B9C0041BC7C /* EditorModel.m in Sources */,
+				C209ED921C0049AA00CE5907 /* SpecialMoreViewMoel.m in Sources */,
 				C2BB1A681BFCAF5100963584 /* MenusModel.m in Sources */,
 				C26B96AE1BF0C233005355A7 /* ViewController.m in Sources */,
 				C27242941BFEC9D10082769D /* MoreCategoryCell.m in Sources */,
@@ -950,6 +1000,7 @@
 				C2074A911BF209E00094E70D /* BaseNetManager.m in Sources */,
 				C21382371BFAB1E800DD1FB1 /* AnchorCell.m in Sources */,
 				C2F21A291BF864BA00CB5397 /* iCarousel.m in Sources */,
+				C29AAA311C001A4A0041BC7C /* MoreViewModel.m in Sources */,
 				C2BB1A6E1BFCB13100963584 /* MoreCotentNetManager.m in Sources */,
 				C2CFA8021BFADCB200251B87 /* AnchorViewModel.m in Sources */,
 				C268A9051BF4A5A900FEB50C /* HomePageNetManager.m in Sources */,
@@ -958,12 +1009,15 @@
 				C2CFA80B1BFB153400251B87 /* RankViewModel.m in Sources */,
 				C2CFA8171BFB4A2A00251B87 /* LiveViewModel.m in Sources */,
 				C2BB1A601BFC5D6600963584 /* NSString+PJR.m in Sources */,
+				C209ED8C1C00486B00CE5907 /* SpecialModel.m in Sources */,
 				C268A9081BF4A62200FEB50C /* HomePageModel.m in Sources */,
 				C2074A901BF209E00094E70D /* BaseModel.m in Sources */,
 				C2D050DB1BF5C0FA002C6F3E /* GuessLikeModel.m in Sources */,
 				C2074A991BF212C00094E70D /* CategoryViewController.m in Sources */,
 				C2074A9F1BF212FC0094E70D /* AnchorViewController.m in Sources */,
+				C29AAA281C000B360041BC7C /* EditorMoreViewController.m in Sources */,
 				C268A9021BF4A58200FEB50C /* HomePageViewModel.m in Sources */,
+				C29AAA341C001E1B0041BC7C /* EditorCell.m in Sources */,
 				C2CFA8081BFB0E9D00251B87 /* RankCell.m in Sources */,
 				C2BB1A651BFC5E1F00963584 /* MBProgressHUD+HR.m in Sources */,
 				C2E848871BF96E4700366E8A /* CategoryCommonCell.m in Sources */,
@@ -973,12 +1027,14 @@
 				C2074A8F1BF209E00094E70D /* HRTabBarController.m in Sources */,
 				C2BB1A571BFC2C5D00963584 /* LiveRadioCell.m in Sources */,
 				C23417EE1BF35A0700DE52FA /* FindPutCell.m in Sources */,
+				C209ED8F1C00494A00CE5907 /* SpecialMoreViewController.m in Sources */,
 				C231FA4B1BF6FF45001064D1 /* DiscoveryCell.m in Sources */,
 				C26B96A01BF0BC2F005355A7 /* HRDownloadViewController.m in Sources */,
 				C2EB4EBC1BFDB5AD005115C5 /* MoreContentViewModel.m in Sources */,
 				C26B96A31BF0BC45005355A7 /* HRFindViewController.m in Sources */,
 				C2074A921BF209E00094E70D /* HRPlayView.m in Sources */,
 				C2074AA21BF2132C0094E70D /* RankingViewController.m in Sources */,
+				C29AAA2E1C00189E0041BC7C /* EditorMoreViewModel.m in Sources */,
 				C2BB1A6B1BFCAFC300963584 /* ContentsModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
