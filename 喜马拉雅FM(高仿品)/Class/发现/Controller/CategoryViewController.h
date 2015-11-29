@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 /**
- *  分类
+ *  (发现)分类控制器
  */
 @interface CategoryViewController : UIViewController
 

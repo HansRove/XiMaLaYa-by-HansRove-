@@ -183,7 +183,7 @@ kRemoveCellSeparator
     } else if (indexPath.section >= self.homeVM.section-2) {
         return 44;
     } else {
-        return 170;
+        return 160;
     }
         
 }

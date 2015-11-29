@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 /**
- *  直播
+ *  (发现)直播控制器
  */
 @interface LiveViewController : UIViewController
 

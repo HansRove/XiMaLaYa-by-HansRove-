@@ -27,6 +27,13 @@
             make.edges.mas_equalTo(0);
         }];
         _circleIV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tabbar_np_loop"]];
+        // KVO观察image变化, 变化了就初始化定时器, 值变化则执行task
+        [_circleIV bk_addObserverForKeyPath:@"image" options:NSKeyValueObservingOptionNew task:^(id obj, NSDictionary *change) {
+            // 启动定时器
+            self.link.paused = NO;
+            self.playButton.selected = YES;
+        }];
+        
         [backgoundIV addSubview:_circleIV];
         [_circleIV mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.top.mas_equalTo(2);
@@ -45,7 +52,7 @@
     return self;
 }
 
-
+/**  背景图rotation滚动 */
 - (void)rotation {
     self.circleIV.layer.transform = CATransform3DRotate(self.circleIV.layer.transform, angleToRadian(72/60.0), 0, 0, 1);
 }
@@ -61,20 +68,18 @@
         [_playButton mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.top.mas_equalTo(2);
             make.right.mas_equalTo(-2);
-            make.bottom.mas_equalTo(-8);
+            make.bottom.mas_equalTo(-7);
         }];
         
         // 按钮点击后做的方法
         [_playButton bk_addEventHandler:^(UIButton* sender) {
             // 点击图和不点击图交换
-            if ([self.delegate respondsToSelector:@selector(playButtonDidClick)]) {
+            if ([self.delegate respondsToSelector:@selector(playButtonDidClick:)]) {
                 sender.selected = !sender.selected;
-                [self.delegate playButtonDidClick];
+                self.link.paused = !sender.selected;
+                [self.delegate playButtonDidClick:sender.selected];
             }
         } forControlEvents:UIControlEventTouchUpInside];
-        
-        // 启动定时器
-        self.link.paused = NO;
     }
     return _playButton;
 }

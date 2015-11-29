@@ -10,6 +10,7 @@
 #import "SpecialMoreViewMoel.h"
 #import "SpecialCell.h"
 #import "TitleView.h"
+//#import "DestinationViewController.h"
 
 @interface SpecialMoreViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *tableView;
@@ -51,6 +52,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
 }
 
 // 分组头

@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+/**
+ *  (发现)首页控制器
+ */
 @interface HomePageViewController : UIViewController
 
 @end

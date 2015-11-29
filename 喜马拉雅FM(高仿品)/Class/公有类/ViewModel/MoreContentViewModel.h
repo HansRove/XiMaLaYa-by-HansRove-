@@ -37,6 +37,9 @@
 - (NSString *)playsForIndexPath:(NSIndexPath *)indexPath;
 /**  通过分组数和行数(IndexPath), 获取集数 */
 - (NSString *)tracksForIndexPath:(NSIndexPath *)indexPath;
+/**  通过分组数和行数(IndexPath), 获取类别ID */
+- (NSInteger)albumIdForIndexPath:(NSIndexPath *)indexPath;
+
 
 #pragma mark - 头视图相关
 // 有多找张滚动图

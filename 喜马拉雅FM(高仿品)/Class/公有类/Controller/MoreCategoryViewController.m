@@ -9,6 +9,7 @@
 #import "MoreCategoryViewController.h"
 #import "MoreCategoryViewModel.h"
 #import "MoreCategoryCell.h"
+#import "DestinationViewController.h"
 
 @interface MoreCategoryViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *tableView;
@@ -39,6 +40,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    // 从本控制器VM获取头标题, 以及分类ID回初始化
+    DestinationViewController *vc = [[DestinationViewController alloc] initWithAlbumId:[self.categoryVM albumIdForRow:indexPath.row] title:[self.categoryVM titleForRow:indexPath.row]];
+    // 隐藏状态栏及底部栏
+    vc.hidesBottomBarWhenPushed = YES;
+    self.navigationController.navigationBar.hidden = YES;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - VM,tableView懒加载

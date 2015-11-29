@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 /**
- *  最终展示页
+ *  最终展示页控制器
  */
 @interface DestinationViewController : UIViewController
 

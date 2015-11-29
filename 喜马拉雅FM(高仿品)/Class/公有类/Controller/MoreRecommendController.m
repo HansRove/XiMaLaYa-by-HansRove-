@@ -12,6 +12,7 @@
 #import "TitleView.h"
 #import "iCarousel.h"
 #import "FocusImageScrollView.h"
+#import "DestinationViewController.h"
 
 @interface MoreRecommendController ()<UITableViewDataSource,UITableViewDelegate,iCarouselDataSource,iCarouselDelegate>
 @property (nonatomic,strong) UITableView *tableView;
@@ -118,6 +119,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    // 从本控制器VM获取头标题, 以及分类ID回初始化
+    DestinationViewController *vc = [[DestinationViewController alloc] initWithAlbumId:[self.moreVM albumIdForIndexPath:indexPath] title:[self.moreVM titleForIndexPath:indexPath]];
+    // 隐藏状态栏及底部栏
+    vc.hidesBottomBarWhenPushed = YES;
+    self.navigationController.navigationBar.hidden = YES;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - VM,tableView懒加载

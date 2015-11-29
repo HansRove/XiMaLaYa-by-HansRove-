@@ -56,8 +56,8 @@
         // 昵称及头像
         _infoView.nameView.name.text = self.tracksVM.albumNickName;
         [_infoView.nameView.icon setImageWithURL:self.tracksVM.albumIconURL];
-        // 介绍信息
-        _infoView.descView.descLb.text = self.tracksVM.albumDesc == nil ? @"暂无简介": self.tracksVM.albumDesc  ;
+        // 介绍信息, 如果返回字符串长度为0 则显示"暂无简介"
+        _infoView.descView.descLb.text = self.tracksVM.albumDesc.length == 0 ? @"暂无简介": self.tracksVM.albumDesc  ;
         [_infoView setupTagsBtnWithTagNames:self.tracksVM.tagsName];
     }];
 }

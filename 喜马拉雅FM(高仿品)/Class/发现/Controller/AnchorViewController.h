@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 /**
- *  主播
+ *  (发现)主播控制器
  */
 @interface AnchorViewController : UIViewController
 

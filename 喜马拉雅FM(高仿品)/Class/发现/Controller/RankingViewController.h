@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 /**
- *  榜单
+ *  (发现)榜单控制器
  */
 @interface RankingViewController : UIViewController
 

@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "MoreContentViewModel.h"
 
+/**
+ *  (发现-热门更多)推荐控制器
+ */
 @interface MoreRecommendController : UIViewController
 
 // 作一个键(name), 让MV可以绑定

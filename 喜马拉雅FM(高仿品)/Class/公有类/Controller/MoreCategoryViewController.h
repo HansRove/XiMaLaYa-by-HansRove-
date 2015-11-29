@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+/**
+ *  (发现-热门更多)其他分类控制器
+ */
 @interface MoreCategoryViewController : UIViewController
 
 // 作一个键, 让MV可以绑定    接收外部传参，决定当前控制器显示哪种类型的信息

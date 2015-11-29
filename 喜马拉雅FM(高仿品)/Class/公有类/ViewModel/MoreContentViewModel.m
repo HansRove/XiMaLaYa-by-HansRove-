@@ -99,7 +99,10 @@
     NSInteger tracks = self.model.categoryContents.list[indexPath.section].list[indexPath.row].tracksCounts;
     return [NSString stringWithFormat:@"%ld集",tracks];
 }
-
+/**  通过分组数和行数(IndexPath), 获取类别ID */
+- (NSInteger)albumIdForIndexPath:(NSIndexPath *)indexPath {
+    return self.model.categoryContents.list[indexPath.section].list[indexPath.row].albumId;
+}
 
 #pragma mark - 表头滚动视图相关
 - (NSInteger)focusImgNumber {

@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+/**
+ *  小编推荐更多
+ */
 @interface EditorMoreViewController : UIViewController
 
 

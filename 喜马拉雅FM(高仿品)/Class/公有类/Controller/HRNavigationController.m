@@ -60,7 +60,6 @@
     // 设置背景图
     NSURL *coverURL = notification.userInfo[@"coverURL"];
     NSURL *musicURL = notification.userInfo[@"musicURL"];
-//    [self.playView.playButton setBackgroundImageForState:UIControlStateNormal withURL:coverURL];
     [self.playView.circleIV setImageWithURL:coverURL];
     
     // 支持后台播放
@@ -71,14 +70,19 @@
     // 开始播放
     _player = [AVPlayer playerWithURL:musicURL];
     [_player play];
-    self.playView.playButton.selected = YES;
+    // 已改到背景变化时再变化
+//    self.playView.playButton.selected = YES;
 }
 
 
 #pragma mark - PlayView的代理方法
-- (void)playButtonDidClick {
-    // 按钮被点击方法
-    NSLog(@"播放按钮被点击");
+- (void)playButtonDidClick:(BOOL)selected {
+    // 按钮被点击方法, 判断按钮的selected状态
+    if (selected) {
+        [_player play];  // 继续播放
+    } else {
+        [_player pause];  // 暂停播放, 以后会取消, 此处应该是跳转最后一个播放器控制器
+    }
 }
 
 

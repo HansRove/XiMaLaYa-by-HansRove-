@@ -60,10 +60,6 @@
     NSString *path = self.model.list[row].coverMiddle;  // albumCoverUrl290一样
     return [NSURL URLWithString:path];
 }
-/**  通过分组数, 获取标题(title)*/
-- (NSString *)titleForRow:(NSInteger)row {
-    return self.model.list[row].title;
-}
 /**  通过分组数, 获取作者(intro)*/
 - (NSString *)introForRow:(NSInteger)row {
     return self.model.list[row].intro;
@@ -80,6 +76,17 @@
 /**  通过分组数, 获取集数*/
 - (NSString *)tracksForRow:(NSInteger)row {
     return [NSString stringWithFormat:@"%ld集",self.model.list[row].tracksCounts];
+}
+
+#pragma mark - 跳转页专用
+/**  通过分组数, 获取分类Id */
+- (NSInteger)albumIdForRow:(NSInteger)row {
+    return self.model.list[row].albumId;
+}
+
+/**  通过分组数, 获取标题(title)*/
+- (NSString *)titleForRow:(NSInteger)row {
+    return self.model.list[row].title;
 }
 
 @end

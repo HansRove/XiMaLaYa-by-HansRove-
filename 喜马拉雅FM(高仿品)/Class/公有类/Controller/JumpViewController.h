@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 /**
-  * 页面跳转视图, 负责初始化WMPageController  并跳转
+  * (发现-热门更多)页面跳转视图, 负责初始化WMPageController  并跳转
  */
 @interface JumpViewController : UIViewController
 /** 控制器初始化 */
