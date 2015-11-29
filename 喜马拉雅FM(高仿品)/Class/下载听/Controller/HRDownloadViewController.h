@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <WMPageController.h>
 
-@interface HRDownloadViewController : UIViewController
+@interface HRDownloadViewController : WMPageController
+
+// 创建一个单例
++ (instancetype)downloadViewController;
 
 @end

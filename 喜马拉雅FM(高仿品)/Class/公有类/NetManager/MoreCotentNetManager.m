@@ -12,6 +12,7 @@
 #import "ContentCategoryModel.h"
 #import "EditorModel.h"
 #import "SpecialModel.h"
+#import "DestinationModel.h"
 
 #define kURLPath @"http://mobile.ximalaya.com/mobile/discovery/v2/category/recommends"
 #define kURLCategoryPath @"http://mobile.ximalaya.com/mobile/discovery/v2/category/recommends"
@@ -28,6 +29,7 @@
 #define kURLPageID @"pageId":@1
 #define kURLStatus  @"status":@0
 #define KURLPer_page @"per_page":@10
+#define kURLPosition @"position":@1
 // 汉字UTF8进行转换并转入字典
 #define kURLMoreTitle @"title":[@"更多" stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]
 
@@ -72,5 +74,16 @@
         completed([SpecialModel mj_objectWithKeyValues:responseObject],error);
     }];
 }
+
+/**  从网络上获取 选集信息  通过AlbumId, mainTitle, idAsc(是否升序)*/
+//http://mobile.ximalaya.com/mobile/others/ca/album/track/2758446/true/1/20?position=1&albumId=2758446&isAsc=true&device=android&title=%E5%B0%8F%E7%BC%96%E6%8E%A8%E8%8D%90&pageSize=20
++ (id)getTracksForAlbumId:(NSInteger)albumId mainTitle:(NSString *)title idAsc:(BOOL)isAsc completionHandle:(void(^)(id responseObject, NSError *error))completed {
+    NSDictionary *params = @{@"albumId":@(albumId),@"title":title,@"isAsc":@(isAsc), kURLDevice,kURLPosition};
+    NSString *path = [NSString stringWithFormat:@"http://mobile.ximalaya.com/mobile/others/ca/album/track/%ld/true/1/20",albumId];
+    return [self GET:path parameters:params complationHandle:^(id responseObject, NSError *error) {
+        completed([DestinationModel mj_objectWithKeyValues:responseObject],error);
+    }];
+}
+
 
 @end

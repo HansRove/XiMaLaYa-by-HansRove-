@@ -8,9 +8,15 @@
 
 #import "HRNavigationController.h"
 #import "HRPlayView.h"
+// 播放
+#import <AVFoundation/AVFoundation.h>
+//#import "SettingViewController.h"
 
-@interface HRNavigationController ()
+@interface HRNavigationController ()<PlayViewDelegate>
+@property (nonatomic,strong) HRPlayView *playView;
 @property (nonatomic,strong) NSString *imageName;
+
+@property (nonatomic,strong) AVPlayer *player;
 @end
 
 @implementation HRNavigationController
@@ -20,30 +26,66 @@
     // 防止其他ViewController的导航被遮挡, 这个类的主要作用是 PlayView
     self.navigationBarHidden = YES;
     
+    // 开启两个通知接收(HRMeViewController传入)
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hidePlayView:) name:@"hidePlayView" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showPlayView:) name:@"showPlayView" object:nil];
     
-    HRPlayView *playView = [[HRPlayView alloc] initWithBackgroundImageName:self.imageName];
-    [self.view addSubview:playView];
-    [playView mas_makeConstraints:^(MASConstraintMaker *make) {
+    // 开启一个通知接受,播放URL 及图片
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playingWithInfoDictionary:) name:@"BeginPlay" object:nil];
+
+    self.playView = [[HRPlayView alloc] init];
+    self.playView.delegate = self;
+    [self.view addSubview:_playView];
+    [_playView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.mas_equalTo(0);
         make.centerX.mas_equalTo(0);
         make.width.mas_equalTo(65);
         make.height.mas_equalTo(70);
     }];
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+// 隐藏图片
+- (void)hidePlayView:(NSNotification *)notification
+{
+    self.playView.hidden = YES;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+// 显示图片
+- (void)showPlayView:(NSNotification *)notification
+{
+    self.playView.hidden = NO;
 }
-*/
+
+/** 通过播放地址 和 播放图片 */
+- (void)playingWithInfoDictionary:(NSNotification *)notification {
+    // 设置背景图
+    NSURL *coverURL = notification.userInfo[@"coverURL"];
+    NSURL *musicURL = notification.userInfo[@"musicURL"];
+//    [self.playView.playButton setBackgroundImageForState:UIControlStateNormal withURL:coverURL];
+    [self.playView.circleIV setImageWithURL:coverURL];
+    
+    // 支持后台播放
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+    // 激活
+    [[AVAudioSession sharedInstance] setActive:YES error:nil];
+    
+    // 开始播放
+    _player = [AVPlayer playerWithURL:musicURL];
+    [_player play];
+    self.playView.playButton.selected = YES;
+}
+
+
+#pragma mark - PlayView的代理方法
+- (void)playButtonDidClick {
+    // 按钮被点击方法
+    NSLog(@"播放按钮被点击");
+}
+
+
+- (void)dealloc {
+    // 关闭消息中心
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 
 @end

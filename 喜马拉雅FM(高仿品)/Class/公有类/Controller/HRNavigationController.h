@@ -12,4 +12,6 @@
  */
 @interface HRNavigationController : UINavigationController
 
+@property (nonatomic,assign) NSInteger count;
+
 @end

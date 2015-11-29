@@ -16,21 +16,19 @@
 #import "iCarousel.h"  // 制作头部循环滚动视图
 #import "FocusImageScrollView.h"  // 封装好的头部视图
 
+// 更多按钮 跳转视图
 #import "JumpViewController.h"
 #import "EditorMoreViewController.h"
 #import "SpecialMoreViewController.h"
 
-#import "MoreViewController.h"  // 更多按钮需要跳转的控制器
-#import "MoreRecommendController.h"  // 推荐
-#import "MoreCategoryViewController.h"   // 其他类
-#import "MoreContentViewModel.h"    // 跳转VM
+// 测试
+#import "DestinationViewController.h"
 
 @interface HomePageViewController ()<UITableViewDataSource,UITableViewDelegate,iCarouselDataSource,iCarouselDelegate,ContentImageViewDelegate, TitleViewDelegate>
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) HomePageViewModel *homeVM;
 
 // 跳转页VM
-@property (nonatomic,strong) MoreContentViewModel *moreVM;
 @property (nonatomic,assign) NSInteger categoryId;
 @property (nonatomic,strong) NSString *type;
 @end
@@ -48,6 +46,7 @@
         [self.tableView reloadData];
     }];
 }
+
 
 #pragma mark - iCarousel代理方法
 // @require
@@ -126,7 +125,7 @@ kRemoveCellSeparator
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
         if (indexPath.section == self.homeVM.section-2) {  // 更多分类
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            cell.imageView.image = [UIImage imageNamed:@"findsubject_small_bg"];
+            cell.imageView.image = [UIImage imageNamed:@"find_gotocate"];
             cell.textLabel.text = @"更多分类";
         } else { // 热门直播
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -209,6 +208,15 @@ kRemoveCellSeparator
     // 第几个按钮
     NSInteger row = tag%10;
     NSLog(@"%ld-----%ld",section,row);
+    
+    // 从本控制器VM获取头标题, 以及分类ID回初始化
+    DestinationViewController *vc = [[DestinationViewController alloc] initWithAlbumId:[self.homeVM albumIdForSection:section index:row] title:[self.homeVM mainTitleForSection:section]];
+    // 隐藏状态栏及底部栏
+    vc.hidesBottomBarWhenPushed = YES;
+    self.navigationController.navigationBar.hidden = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+//    vc.hidesBottomBarWhenPushed = NO;
+    
 }
 
 #pragma mark - 点击更多按钮代理实现跳转
@@ -220,77 +228,35 @@ kRemoveCellSeparator
     _categoryId = [self.homeVM categoryIdForSection:tag];
     _type = [self.homeVM contentTypeForSection:tag];
     
-//    MoreViewController *vc = [[MoreViewController alloc] initWithViewControllerClasses:[self viewControllerClassesForTag:tag] andTheirTitles:[self.moreVM tagsArrayForSection:tag]];
-//    vc.keys = [self vcKeysForTag:tag];
-//    vc.values = [self vcValuesForTag:tag];
-    if (tag == 0) {
-        EditorMoreViewController *vc = [EditorMoreViewController new];
-        // push 跳转控制器 隐藏tabbar
-        vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:vc animated:NO];
-    } else if(tag == 1) {
-        SpecialMoreViewController *vc = [SpecialMoreViewController new];
-        [self.navigationController pushViewController:vc animated:NO];
-    }
-    if (tag>=2) {
-        // 如果>=2  跳转到中介页
-        JumpViewController *vc = [[JumpViewController alloc] initWithCategoryId:_categoryId contentType:_type tag:tag];
-        // push 跳转控制器 隐藏tabbar
-        vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:vc animated:NO];
-        
+    switch (tag) {
+        case 0:
+        {
+            EditorMoreViewController *vc = [EditorMoreViewController new];
+            // push 跳转控制器 隐藏tabbar
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:vc animated:NO];
+        }
+            break;
+        case 1:
+        {
+            SpecialMoreViewController *vc = [SpecialMoreViewController new];
+            [self.navigationController pushViewController:vc animated:NO];
+        }
+            break;
+        default:
+        {
+            // 如果>=2  跳转到中介页
+            JumpViewController *vc = [[JumpViewController alloc] initWithCategoryId:_categoryId contentType:_type tag:tag];
+            // push 跳转控制器 隐藏tabbar
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:vc animated:NO];
+        }
+            break;
     }
     
-    
-}
-
-/**  创建控制器数组 要与TheirTitles对应上*/
-- (NSArray *)viewControllerClassesForTag:(NSInteger)tag {
-    NSMutableArray *controllerArr = [NSMutableArray array];
-    // 加推荐页
-    _categoryId = [self.homeVM categoryIdForSection:tag];
-    _type = [self.homeVM contentTypeForSection:tag];
-    
-//    [controllerArr addObject:[[MoreRecommendController alloc] initWithViewModel:self.moreVM]];
-    [controllerArr addObject:[MoreRecommendController class]];
-    // 加同类分页
-    NSInteger count = [self.moreVM tagsArrayForSection:tag].count;
-    // 因为0被推荐页占有所以从0开始
-    for (int i=1; i<count; i++) {
-        [controllerArr addObject:[MoreCategoryViewController class]];
-    }
-    return [controllerArr copy];
-}
-
-#pragma mark - 制作控制器的键值
-/** 提供每个VC对应的key值数组 */
-- (NSArray *)vcKeysForTag:(NSInteger)tag {
-    NSMutableArray *keyArr = [NSMutableArray new];
-    NSInteger count = [self.moreVM tagsArrayForSection:tag].count + 1;
-    for (int i = 0; i<count; i++) {
-        [keyArr addObject:@"name"];
-    }
-    return [keyArr copy];
-}
-/** 提供每个VC对应的values值数组 */
-- (NSArray *)vcValuesForTag:(NSInteger)tag {
-    NSMutableArray *valueArr = [NSMutableArray new];
-    NSInteger count = [self.moreVM tagsArrayForSection:tag].count + 1;
-    for (NSString *name in [self.moreVM tagsArrayForSection:tag]) {
-        [valueArr addObject:name];
-    }
-    return [valueArr copy];
 }
 
 #pragma mark - 懒加载
-// 跳转页VM懒加载
-- (MoreContentViewModel *)moreVM {
-    if (!_moreVM) {
-        _moreVM = [[MoreContentViewModel alloc] initWithCategoryId:_categoryId contentType:_type];
-    }
-    return _moreVM;
-}
-     
      
 - (HomePageViewModel *)homeVM {
     if (!_homeVM) {

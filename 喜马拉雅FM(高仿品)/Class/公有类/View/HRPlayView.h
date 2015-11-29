@@ -8,10 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol PlayViewDelegate <NSObject>
+
+- (void)playButtonDidClick;
+
+@end
+
 @interface HRPlayView : UIView
-/**
- *  需要传一个图片名称作按钮背景图
- */
-- (instancetype)initWithBackgroundImageName:(NSString *)imageName;
-@property (nonatomic,strong) NSString *imageName;
+
+@property (nonatomic,strong) UIImageView *circleIV;
+@property (nonatomic,strong) UIButton *playButton;
+//@property (nonatomic,assign,getter=isScroll) BOOL scroll;
+@property (nonatomic,weak) id<PlayViewDelegate> delegate;
+
 @end

@@ -26,17 +26,19 @@
     // findNavi是套有导航的
     UINavigationController *findNavi = [HRFindViewController defaultFindUINavigationController];
     [self setupChildController:findNavi imageName:@"tabbar_find_n" selectedImage:@"tabbar_find_h"];
-    HRSoundViewController *soundVC = [[HRSoundViewController alloc] init];
+    HRSoundViewController *soundVC = [HRSoundViewController soundViewController];
     [self setupChildController:soundVC imageName:@"tabbar_sound_n" selectedImage:@"tabbar_sound_h"];
     // 只占用空间
     UIViewController *vc = [UIViewController new];
     [self setupChildController:vc  imageName:nil selectedImage:nil];
     
-    HRDownloadViewController *downloadVC = [[HRDownloadViewController alloc] init];
+    HRDownloadViewController *downloadVC = [HRDownloadViewController downloadViewController];
     [self setupChildController:downloadVC imageName:@"tabbar_download_n" selectedImage:@"tabbar_download_h"];
-    HRMeViewController *meVC = [[HRMeViewController alloc] init];
-    [self setupChildController:meVC imageName:@"tabbar_me_n" selectedImage:@"tabbar_me_h"];
     
+    // 从独立的storyboard中获取一个控制器
+    HRMeViewController *meVC = [kStoryboard(@"MeSetting") instantiateViewControllerWithIdentifier:@"Me"];
+
+    [self setupChildController:meVC imageName:@"tabbar_me_n" selectedImage:@"tabbar_me_h"];
     // 设置tabbar的背景图
     self.tabBar.backgroundImage = [UIImage imageNamed:@"tabbar_bg"];
     

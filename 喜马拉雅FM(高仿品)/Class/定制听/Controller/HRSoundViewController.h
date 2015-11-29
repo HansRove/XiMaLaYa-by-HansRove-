@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <WMPageController.h>
 
-@interface HRSoundViewController : UIViewController
+@interface HRSoundViewController : WMPageController
+
+// 创建一个单例
++ (instancetype)soundViewController;
 
 @end

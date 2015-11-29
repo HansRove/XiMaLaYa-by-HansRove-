@@ -8,10 +8,6 @@
 
 #import "HRMeViewController.h"
 
-#import "ViewController.h"
-#import "HomePageViewController.h"
-#import "AnchorViewController.h"
-
 @interface HRMeViewController ()
 
 @end
@@ -20,27 +16,41 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-//    btn.backgroundColor = [UIColor redColor];
-    NSURL *url = [NSURL URLWithString:@"http://fdfs.xmcdn.com/group5/M03/A2/B6/wKgDtVRzL6fhKYXSAADtvRuLo-U167_web_x_large.jpg"];
-    [btn setImageForState:UIControlStateNormal withURL:url];
-    [self.view addSubview:btn];
-    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.mas_equalTo(0);
-        make.width.mas_equalTo(60);
-        make.height.mas_equalTo(65);
-    }];
-    [btn addTarget:self action:@selector(click) forControlEvents:UIControlEventTouchUpInside];
-//    self.title = @"hahah";
+    // 不允许越界
+    self.tableView.bounces = NO;
+    // 没有竖直的滚动条
+    self.tableView.showsVerticalScrollIndicator = NO;
+    
+    self.navigationItem.backBarButtonItem.title = @"返回";
+//    self.navigationController.navigationBarHidden = YES;
 }
 
-- (void)click {
-//        HomePageViewController *vc = [ HomePageViewController new];
-//    AnchorViewController *vc =[AnchorViewController new];
-    ViewController *vc = [ViewController new];
-    vc.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:vc animated:YES];
-    vc.hidesBottomBarWhenPushed = NO;
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if (section == 0) {
+        UIView *view = [[UIView alloc]init];
+        UIButton *recordedBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [view addSubview:recordedBtn];
+        [recordedBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.center.mas_equalTo(0);
+            make.width.mas_equalTo(250);
+            make.height.mas_equalTo(40);
+        }];
+        [recordedBtn setImage:[UIImage imageNamed:@"btn_record_n"] forState:UIControlStateNormal];
+        [recordedBtn setImage:[UIImage imageNamed:@"btn_record_h"] forState:UIControlStateHighlighted];
+        return view;
+    } else {
+        return nil;
+    }
+    
 }
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return section ? 10:60;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+
 
 @end
