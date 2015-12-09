@@ -12,7 +12,6 @@
 #import "LiveViewController.h"
 #import "RankingViewController.h"
 #import "AnchorViewController.h"
-#import "ViewController.h"
 //#import "RecommendViewController.h"
 
 
@@ -43,9 +42,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    NSLog(@"%@",NSStringFromCGPoint(self.scrollView.contentOffset));
 }
 
-
+//- (void)menuView:(WMMenuView *)menu didSelesctedIndex:(NSInteger)index currentIndex:(NSInteger)currentIndex {
+//    NSLog(@"select:%ld,current:%ld",index,currentIndex);
+//}
 
 @end

@@ -24,7 +24,7 @@
 // 测试
 #import "DestinationViewController.h"
 
-@interface HomePageViewController ()<UITableViewDataSource,UITableViewDelegate,iCarouselDataSource,iCarouselDelegate,ContentImageViewDelegate, TitleViewDelegate>
+@interface HomePageViewController ()<UITableViewDataSource,UITableViewDelegate,iCarouselDataSource,iCarouselDelegate,ContentShowViewDelegate, TitleViewDelegate>
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) HomePageViewModel *homeVM;
 
@@ -36,6 +36,8 @@
 @implementation HomePageViewController
 { // 定义完全私有的属性 : 添加成员变量,因为不需要懒加载,所以不需要是属性
     UIPageControl *_pageControl;
+    // 定义热门类或三个图片按钮的FindPutCell高
+    CGFloat _hotCellHeight;
 }
 
 - (void)viewDidLoad {
@@ -138,23 +140,24 @@ kRemoveCellSeparator
     } else {
         // FindPutCell (三个按钮)
         FindPutCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FCell"];
+        _hotCellHeight = cell.cellHeight;
    
             cell.clickBtn0.titleLb.text = [self.homeVM titleForSection:indexPath.section index:0];
-            [cell.clickBtn0 setImageWithURL:[self.homeVM coverURLForSection:indexPath.section index:0] placeholderImage:[UIImage imageNamed:@"cell_bg_noData_3"]];
+            [cell.clickBtn0.contentImgView setImageWithURL:[self.homeVM coverURLForSection:indexPath.section index:0] placeholderImage:[UIImage imageNamed:@"cell_bg_noData_3"]];
         // 定Tag值,跳转需要
         cell.clickBtn0.tag = indexPath.section*10 + 0;
         cell.clickBtn0.delegate = self;
         cell.detailLb0.text = [self.homeVM trackTitleForSection:indexPath.section index:0];
         
         cell.clickBtn1.titleLb.text = [self.homeVM titleForSection:indexPath.section index:1];
-        [cell.clickBtn1 setImageWithURL:[self.homeVM coverURLForSection:indexPath.section index:1] placeholderImage:[UIImage imageNamed:@"cell_bg_noData_3"]];
+        [cell.clickBtn1.contentImgView setImageWithURL:[self.homeVM coverURLForSection:indexPath.section index:1] placeholderImage:[UIImage imageNamed:@"cell_bg_noData_3"]];
         // 定Tag值,跳转需要
         cell.clickBtn1.tag = indexPath.section*10 + 1;
         cell.clickBtn1.delegate = self;
         cell.detailLb1.text = [self.homeVM trackTitleForSection:indexPath.section index:1];
         
         cell.clickBtn2.titleLb.text = [self.homeVM titleForSection:indexPath.section index:2];
-        [cell.clickBtn2 setImageWithURL:[self.homeVM coverURLForSection:indexPath.section index:2] placeholderImage:[UIImage imageNamed:@"cell_bg_noData_3"]];
+        [cell.clickBtn2.contentImgView setImageWithURL:[self.homeVM coverURLForSection:indexPath.section index:2] placeholderImage:[UIImage imageNamed:@"cell_bg_noData_3"]];
         // 定Tag值,跳转需要
         cell.clickBtn2.tag = indexPath.section*10 + 2;
         cell.clickBtn2.delegate = self;
@@ -183,7 +186,7 @@ kRemoveCellSeparator
     } else if (indexPath.section >= self.homeVM.section-2) {
         return 44;
     } else {
-        return 160;
+        return _hotCellHeight;
     }
         
 }
@@ -196,19 +199,23 @@ kRemoveCellSeparator
 // tableView跳转
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.section == 15) {
+        // 更多分类, 则跳转过去
+    }
+    
 }
+// 是否允许点击高亮
 - (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
-    return NO;
+    // 只允许后两排被点击高亮
+    return indexPath.section >= 15 ;
 }
 
-#pragma mark - ContentImageViewDelegate代理实现跳转
-- (void)contentImageViewClick:(NSInteger)tag {
+#pragma mark - ContentShowViewDelegate代理实现跳转
+- (void)contentShowViewClick:(NSInteger)tag {
     // 第几分区
     NSInteger section = tag/10;
     // 第几个按钮
     NSInteger row = tag%10;
-    NSLog(@"%ld-----%ld",section,row);
-    
     // 从本控制器VM获取头标题, 以及分类ID回初始化
     DestinationViewController *vc = [[DestinationViewController alloc] initWithAlbumId:[self.homeVM albumIdForSection:section index:row] title:[self.homeVM mainTitleForSection:section]];
     // 隐藏状态栏及底部栏
@@ -216,12 +223,10 @@ kRemoveCellSeparator
     self.navigationController.navigationBar.hidden = YES;
     [self.navigationController pushViewController:vc animated:YES];
 //    vc.hidesBottomBarWhenPushed = NO;
-    
 }
 
 #pragma mark - 点击更多按钮代理实现跳转
 - (void)titleViewDidClick:(NSInteger)tag {
-    NSLog(@"Controller: %ld",tag);
     // 网络加载数据 VM获取
     // 创建控制器(tag>3)
     

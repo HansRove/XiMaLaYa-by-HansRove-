@@ -29,6 +29,7 @@
     3). tableView的组数section和行号row , 规律拿出响应的数组下标  , 进而找到对象 -----图-----
  */
 
+// 时间戳默认*1000  要除回来
 #define kBIT 1000
 @interface SpecialMoreViewMoel ()
 @property (nonatomic,strong) SpecialModel *model;

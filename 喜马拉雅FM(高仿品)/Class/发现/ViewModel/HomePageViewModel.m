@@ -103,7 +103,7 @@
     } else if (section == 2) {
         return self.model.discoveryColumns.list[index].title;
     } else {
-        return self.model.hotRecommends.list[section - 3].list[index].trackTitle;
+        return self.model.hotRecommends.list[section - 3].list[index].title;
     }
 }
 - (NSString *)trackTitleForSection:(NSInteger)section index:(NSInteger)index {

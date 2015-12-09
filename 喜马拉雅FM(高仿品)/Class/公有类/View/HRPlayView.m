@@ -89,7 +89,8 @@
         // 创建定时器, 一秒钟调用rotation方法60次
         _link = [CADisplayLink displayLinkWithTarget:self selector:@selector(rotation)];
         // 手动将定时器加入到事件循环中
-        [_link addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+        // NSRunLoopCommonModes会使得RunLoop会随着界面切换扔继续使用, 不然如果使用Default的话UI交互没问题, 但滑动TableView就会出现不转问题, 因为RunLoop模式改变会影响定时器调度
+        [_link addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
     }
     return _link;
 }

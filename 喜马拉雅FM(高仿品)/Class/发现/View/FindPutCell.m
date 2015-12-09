@@ -19,9 +19,9 @@
 }
 
 #pragma mark - 懒加载并布局
-- (ContentImageView *)clickBtn0 {
+- (ContentShowView *)clickBtn0 {
     if (!_clickBtn0) {
-        _clickBtn0 = [ContentImageView new];
+        _clickBtn0 = [ContentShowView new];
         [self.contentView addSubview:_clickBtn0];
         [_clickBtn0 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(10);
@@ -30,9 +30,9 @@
     }
     return _clickBtn0;
 }
-- (ContentImageView *)clickBtn1 {
+- (ContentShowView *)clickBtn1 {
     if (!_clickBtn1) {
-        _clickBtn1 = [ContentImageView new];
+        _clickBtn1 = [ContentShowView new];
         [self.contentView addSubview:_clickBtn1];
         [_clickBtn1 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(0);
@@ -42,9 +42,9 @@
     }
     return _clickBtn1;
 }
-- (ContentImageView *)clickBtn2 {
+- (ContentShowView *)clickBtn2 {
     if (!_clickBtn2) {
-        _clickBtn2 = [ContentImageView new];
+        _clickBtn2 = [ContentShowView new];
         [self.contentView addSubview:_clickBtn2];
         [_clickBtn2 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(0);
@@ -66,6 +66,7 @@
         }];
         _detailLb0.font = [UIFont systemFontOfSize:14];
         _detailLb0.numberOfLines = 2;
+        _detailLb0.textAlignment = NSTextAlignmentCenter;
     }
     return _detailLb0;
 }
@@ -81,6 +82,7 @@
         }];
         _detailLb1.font = [UIFont systemFontOfSize:14];
         _detailLb1.numberOfLines = 2;
+        _detailLb1.textAlignment = NSTextAlignmentCenter;
     }
     return _detailLb1;
 }
@@ -96,10 +98,16 @@
         }];
         _detailLb2.font = [UIFont systemFontOfSize:14];
         _detailLb2.numberOfLines = 2;
-        
+        _detailLb2.textAlignment = NSTextAlignmentCenter;
     }
     return _detailLb2;
 }
 
+
+// 本Cell行高
+- (CGFloat)cellHeight {
+    // kRect图高, 10描述和图间距, 28描述所用宽,10下行留白高度
+    return kRect+10+28+10;
+}
 
 @end

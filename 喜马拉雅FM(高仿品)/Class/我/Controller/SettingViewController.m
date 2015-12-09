@@ -23,7 +23,6 @@
     [super viewDidLoad];
     self.navigationController.navigationBarHidden = NO;
     self.navigationItem.title = @"设置";
-    
 }
 
 #pragma mark - UITableView协议代理
@@ -31,9 +30,16 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section==1 && indexPath.row <= 1) {
+        return NO;
+    }
+    return YES;
+}
+
 //  设置头高
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 20;
+    return 15;
 }
 
 // 设置尾高

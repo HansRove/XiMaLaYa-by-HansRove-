@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ContentImageView.h"
+#import "ContentShowView.h"
 /**
  *  自定义三个按钮框图片, 高度150合适
  */
@@ -17,16 +17,19 @@
 @property (nonatomic,strong) NSString *title;
 
 /**  跳转按钮0 */
-@property (nonatomic,strong) ContentImageView *clickBtn0;
+@property (nonatomic,strong) ContentShowView *clickBtn0;
 /**  跳转按钮1 */
-@property (nonatomic,strong) ContentImageView *clickBtn1;
+@property (nonatomic,strong) ContentShowView *clickBtn1;
 /**  跳转按钮2 */
-@property (nonatomic,strong) ContentImageView *clickBtn2;
+@property (nonatomic,strong) ContentShowView *clickBtn2;
 /**  跳转按钮介绍0 */
 @property (nonatomic,strong) UILabel *detailLb0;
 /**  跳转按钮介绍1 */
 @property (nonatomic,strong) UILabel *detailLb1;
 /**  跳转按钮介绍2 */
 @property (nonatomic,strong) UILabel *detailLb2;
+
+/**  返回本类计算行高 */
+@property (nonatomic,assign) CGFloat cellHeight;
 
 @end
