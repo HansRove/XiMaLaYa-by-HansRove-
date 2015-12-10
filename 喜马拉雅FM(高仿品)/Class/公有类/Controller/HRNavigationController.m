@@ -60,7 +60,7 @@
     // 设置背景图
     NSURL *coverURL = notification.userInfo[@"coverURL"];
     NSURL *musicURL = notification.userInfo[@"musicURL"];
-    [self.playView.circleIV setImageWithURL:coverURL];
+    [self.playView.contentIV setImageWithURL:coverURL];
     
     // 支持后台播放
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];

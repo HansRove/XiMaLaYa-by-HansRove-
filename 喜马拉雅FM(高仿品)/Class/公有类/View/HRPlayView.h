@@ -16,6 +16,7 @@
 
 @interface HRPlayView : UIView
 @property (nonatomic,strong) UIImageView *circleIV;
+@property (nonatomic,strong) UIImageView *contentIV;
 @property (nonatomic,strong) UIButton *playButton;
 @property (nonatomic,weak) id<PlayViewDelegate> delegate;
 
