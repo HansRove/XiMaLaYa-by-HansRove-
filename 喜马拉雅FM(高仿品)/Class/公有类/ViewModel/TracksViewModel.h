@@ -22,8 +22,12 @@
 @property (nonatomic,assign) NSInteger rowNumber;
 /** 通过行数, 返回标题 */
 - (NSString *)titleForRow:(NSInteger)row;
+/** 通过行数, 返回创作人(来源) */
+- (NSString *)nickNameForRow:(NSInteger)row;
 /** 通过行数, 返回更新时间 */
 - (NSString *)updateTimeForRow:(NSInteger)row;
+/** 通过行数, 返回收藏喜欢数 */
+- (NSString *)favorCountForRow:(NSInteger)row;
 /** 通过行数, 返回播放次数 */
 - (NSString *)playsCountForRow:(NSInteger)row;
 /** 通过行数, 返回播放时长 */

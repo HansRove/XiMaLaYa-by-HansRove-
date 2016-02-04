@@ -40,6 +40,11 @@
 /** 通过行数, 返回标题 */
 - (NSString *)titleForRow:(NSInteger)row {
     return self.model.tracks.list[row].title;
+    // nickname
+}
+/** 通过行数, 返回创作人(来源) */
+- (NSString *)nickNameForRow:(NSInteger)row {
+    return [NSString stringWithFormat:@"by %@",self.model.tracks.list[row].nickname];
 }
 /** 通过行数, 返回更新时间 */
 - (NSString *)updateTimeForRow:(NSInteger)row {
@@ -92,7 +97,16 @@
 - (NSString *)commentCountForRow:(NSInteger)row {
     return @(self.model.tracks.list[row].comments).stringValue;
 }
-
+/** 通过行数, 返回收藏喜欢数 */
+- (NSString *)favorCountForRow:(NSInteger)row {
+    //如果超过万，要显示*.*万
+    NSInteger count = self.model.tracks.list[row].likes;
+    if (count < 10000) {
+        return @(self.model.tracks.list[row].likes).stringValue;
+    }else{
+        return [NSString stringWithFormat:@"%.1f万", (CGFloat)count/10000];
+    } 
+}
 /** 通过行数, 返回播放地址 */
 - (NSURL *)playURLForRow:(NSInteger)row {
     NSString *path = self.model.tracks.list[row].playUrl64;

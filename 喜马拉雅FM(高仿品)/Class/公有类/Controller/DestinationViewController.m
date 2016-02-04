@@ -10,8 +10,10 @@
 // 头部展示页
 #import "AlbumHeaderView.h"
 // 自定义Cell
-#import "TracksCell.h"
+#import "MusicDetailCell.h"
 #import "TracksViewModel.h"
+
+#import <UIKit+AFNetworking.h>
 
 
 @interface DestinationViewController ()<UITableViewDataSource,UITableViewDelegate,AlbumHeaderViewDelegate>
@@ -95,12 +97,15 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    TracksCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TCell"];
-    cell.title.text = [self.tracksVM titleForRow:indexPath.row];
-    cell.updateTime.text = [self.tracksVM updateTimeForRow:indexPath.row];
-    cell.playsCount.text = [self.tracksVM playsCountForRow:indexPath.row];
-    cell.playTime.text = [self.tracksVM playTimeForRow:indexPath.row];
-    cell.commentCount.text = [self.tracksVM commentCountForRow:indexPath.row];
+    MusicDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MusicDetailCell"];
+    [cell.coverIV setImageWithURL:[self.tracksVM coverURLForRow:indexPath.row] placeholderImage:[UIImage imageNamed:@"album_cover_bg"]];
+    cell.titleLb.text = [self.tracksVM titleForRow:indexPath.row];
+    cell.sourceLb.text = [self.tracksVM nickNameForRow:indexPath.row];
+    cell.updateTimeLb.text = [self.tracksVM updateTimeForRow:indexPath.row];
+    cell.playCountLb.text = [self.tracksVM playsCountForRow:indexPath.row];
+    cell.durationLb.text = [self.tracksVM playTimeForRow:indexPath.row];
+    cell.favorCountLb.text = [self.tracksVM favorCountForRow:indexPath.row];
+    cell.commentCountLb.text = [self.tracksVM commentCountForRow:indexPath.row];
     return cell;
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -139,7 +144,7 @@
         _tableView.dataSource = self;
         _tableView.delegate = self;
         [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
-        [_tableView registerClass:[TracksCell class] forCellReuseIdentifier:@"TCell"];
+        [_tableView registerClass:[MusicDetailCell class] forCellReuseIdentifier:@"MusicDetailCell"];
         
         _tableView.rowHeight = 80;
         

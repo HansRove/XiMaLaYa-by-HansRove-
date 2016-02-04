@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		88E72A791C62FA1700D4DA50 /* MusicDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E72A781C62FA1700D4DA50 /* MusicDetailCell.m */; };
 		C2074A8E1BF209E00094E70D /* HRNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2074A7F1BF209E00094E70D /* HRNavigationController.m */; };
 		C2074A8F1BF209E00094E70D /* HRTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2074A811BF209E00094E70D /* HRTabBarController.m */; };
 		C2074A901BF209E00094E70D /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C2074A841BF209E00094E70D /* BaseModel.m */; };
@@ -24,7 +25,6 @@
 		C231FA4B1BF6FF45001064D1 /* DiscoveryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C231FA4A1BF6FF45001064D1 /* DiscoveryCell.m */; };
 		C231FA4E1BF70FC6001064D1 /* SpecialCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C231FA4D1BF70FC6001064D1 /* SpecialCell.m */; };
 		C23417EE1BF35A0700DE52FA /* FindPutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C23417ED1BF35A0700DE52FA /* FindPutCell.m */; };
-		C2567E1B1C07265A00016313 /* TracksCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2567E1A1C07265A00016313 /* TracksCell.m */; };
 		C2567E1E1C0733F600016313 /* TracksViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C2567E1D1C0733F600016313 /* TracksViewModel.m */; };
 		C268A9021BF4A58200FEB50C /* HomePageViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C268A9011BF4A58200FEB50C /* HomePageViewModel.m */; };
 		C268A9051BF4A5A900FEB50C /* HomePageNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C268A9041BF4A5A900FEB50C /* HomePageNetManager.m */; };
@@ -105,6 +105,8 @@
 /* Begin PBXFileReference section */
 		06CE8AF170C863B14C64F3F2 /* Pods-喜马拉雅FM(高仿品).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-喜马拉雅FM(高仿品).debug.xcconfig"; path = "Pods/Target Support Files/Pods-喜马拉雅FM(高仿品)/Pods-喜马拉雅FM(高仿品).debug.xcconfig"; sourceTree = "<group>"; };
 		2770EFEF7EFBE8C9EDBE6516 /* libPods-喜马拉雅FM(高仿品).a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-喜马拉雅FM(高仿品).a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		88E72A771C62FA1700D4DA50 /* MusicDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicDetailCell.h; sourceTree = "<group>"; };
+		88E72A781C62FA1700D4DA50 /* MusicDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicDetailCell.m; sourceTree = "<group>"; };
 		B562FBACC6A279829FE6E3E3 /* Pods-喜马拉雅FM(高仿品).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-喜马拉雅FM(高仿品).release.xcconfig"; path = "Pods/Target Support Files/Pods-喜马拉雅FM(高仿品)/Pods-喜马拉雅FM(高仿品).release.xcconfig"; sourceTree = "<group>"; };
 		C2074A7E1BF209E00094E70D /* HRNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRNavigationController.h; sourceTree = "<group>"; };
 		C2074A7F1BF209E00094E70D /* HRNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRNavigationController.m; sourceTree = "<group>"; };
@@ -140,8 +142,6 @@
 		C231FA4D1BF70FC6001064D1 /* SpecialCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialCell.m; sourceTree = "<group>"; };
 		C23417EC1BF35A0700DE52FA /* FindPutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindPutCell.h; sourceTree = "<group>"; };
 		C23417ED1BF35A0700DE52FA /* FindPutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindPutCell.m; sourceTree = "<group>"; };
-		C2567E191C07265A00016313 /* TracksCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TracksCell.h; sourceTree = "<group>"; };
-		C2567E1A1C07265A00016313 /* TracksCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TracksCell.m; sourceTree = "<group>"; };
 		C2567E1C1C0733F600016313 /* TracksViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TracksViewModel.h; sourceTree = "<group>"; };
 		C2567E1D1C0733F600016313 /* TracksViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TracksViewModel.m; sourceTree = "<group>"; };
 		C268A9001BF4A58200FEB50C /* HomePageViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageViewModel.h; sourceTree = "<group>"; };
@@ -407,8 +407,8 @@
 				C2EA1BB61C05D317000A4CC3 /* DescView.m */,
 				C2FB99DB1C049B890093E1F3 /* SectionView.h */,
 				C2FB99DC1C049B890093E1F3 /* SectionView.m */,
-				C2567E191C07265A00016313 /* TracksCell.h */,
-				C2567E1A1C07265A00016313 /* TracksCell.m */,
+				88E72A771C62FA1700D4DA50 /* MusicDetailCell.h */,
+				88E72A781C62FA1700D4DA50 /* MusicDetailCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1099,7 +1099,6 @@
 				C2CFA8021BFADCB200251B87 /* AnchorViewModel.m in Sources */,
 				C268A9051BF4A5A900FEB50C /* HomePageNetManager.m in Sources */,
 				C2074A8E1BF209E00094E70D /* HRNavigationController.m in Sources */,
-				C2567E1B1C07265A00016313 /* TracksCell.m in Sources */,
 				C2902A351C02B90F001875FA /* SoundViewController.m in Sources */,
 				C2CFA8051BFB0CA100251B87 /* RankModel.m in Sources */,
 				C2CFA80B1BFB153400251B87 /* RankViewModel.m in Sources */,
@@ -1118,6 +1117,7 @@
 				C2CFA8081BFB0E9D00251B87 /* RankCell.m in Sources */,
 				C2BB1A651BFC5E1F00963584 /* MBProgressHUD+HR.m in Sources */,
 				C2E848871BF96E4700366E8A /* CategoryCommonCell.m in Sources */,
+				88E72A791C62FA1700D4DA50 /* MusicDetailCell.m in Sources */,
 				C26B969A1BF0BBD9005355A7 /* HRMeViewController.m in Sources */,
 				C2CFA8141BFB469000251B87 /* LiveModel.m in Sources */,
 				C268A90B1BF4A68400FEB50C /* FindTabsModel.m in Sources */,
